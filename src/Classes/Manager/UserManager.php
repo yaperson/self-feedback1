@@ -50,6 +50,19 @@ class UserManager
         session_start();
         $_SESSION["connecter"] = FALSE;
         $request = $this->_db->query('SELECT id, email, `password` FROM users');
+        while ($ligne = $request->fetch(PDO::FETCH_ASSOC)){ 
+            if ($email == $ligne['email']){
+               $hash = $ligne['password'];
+               if (password_verify($password, $hash)) {
+                   echo 'Le mot de passe est valide !';
+                   $_SESSION['connecter'] = TRUE;
+
+                } else {
+                   session_destroy();
+                   echo '<div class="error">Le mot de passe est invalide.</div>';
+                }
+            }
+        }
     }
 
     public function getList(): array

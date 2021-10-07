@@ -29,19 +29,8 @@ try {
         $password = $_POST['password'];
         // $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $newuser->connectUser($_POST['email'], $password);
-
-        while ($ligne = $request->fetch(PDO::FETCH_ASSOC)){ 
-            if ($email == $ligne['email']){
-               $hash = $ligne['password'];
-               if (password_verify($password, $hash)) {
-                   echo 'Le mot de passe est valide !';
-                   $_SESSION['connecter'] = TRUE;
-                   header('Location: userList.php');
-                } else {
-                   session_destroy();
-                   echo '<div class="error">Le mot de passe est invalide.</div>';
-                }
-            }
+        if ($_SESSION['connecter'] = TRUE){
+        header('Location: userList.php');
         }
     }
      
