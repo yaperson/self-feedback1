@@ -19,7 +19,7 @@ $twig = new Environment($loader, ['cache' => '../cache']);
 
 $error = '';
 
-require_once("conf.php");
+require_once("conf.php"); 
 
 try {
     $db = new PDO($dsn, $usr, $pwd);

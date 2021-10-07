@@ -28,7 +28,7 @@ class User {
 
 
         /**
-     * Get the value of _id
+     * Get the value of _id 
      */ 
     public function getId()
     {

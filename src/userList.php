@@ -33,7 +33,7 @@ try {
 }
 echo $twig->render('userList.html.twig', [
     'title' => 'Liste des utilisateurs',
-    'user' => $users,
+    'user' => $users, 
     'error' => $error,
     ]
 );  

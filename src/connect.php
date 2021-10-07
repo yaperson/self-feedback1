@@ -30,7 +30,7 @@ try {
         // $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $newuser->connectUser($_POST['email'], $password);
 
-        while ($ligne = $request->fetch(PDO::FETCH_ASSOC)){
+        while ($ligne = $request->fetch(PDO::FETCH_ASSOC)){ 
             if ($email == $ligne['email']){
                $hash = $ligne['password'];
                if (password_verify($password, $hash)) {

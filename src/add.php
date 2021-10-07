@@ -18,7 +18,7 @@ $loader = new FilesystemLoader('../templates');
 $twig = new Environment($loader, ['cache' => '../cache']);
 
 $error = '';
-
+ 
 require_once("conf.php");
 
 try {
