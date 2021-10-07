@@ -32,8 +32,9 @@ try {
     $error = 'erreur de connection : ' . $e->getMessage();
 }
 echo $twig->render('dashbord.html.twig', [
-    'title' => 'Liste des utilisateurs',
+    'title' => 'Dashbord',
     'user' => $users,
     'error' => $error,
     ]
 );  
+

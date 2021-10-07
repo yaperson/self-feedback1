@@ -56,7 +56,6 @@ class UserManager
                if (password_verify($password, $hash)) {
                    echo 'Le mot de passe est valide !';
                    $_SESSION['connecter'] = TRUE;
-
                 } else {
                    session_destroy();
                    echo '<div class="error">Le mot de passe est invalide.</div>';

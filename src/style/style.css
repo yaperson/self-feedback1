@@ -16,7 +16,8 @@ body{
     background-color: rgb(243, 243, 243);
     box-shadow: 0 3px 6px 0 rgb(175, 175, 175);
     user-select: none;
-  }
+    z-index: 200;
+}
   
   .topnav .topnav__link {
     float: left;
