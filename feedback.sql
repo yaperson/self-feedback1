@@ -1,40 +1,43 @@
-CREATE DATABASE IF NOT EXISTS `feedback` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+DROP DATABASE IF EXISTS feedback ;
+CREATE DATABASE feedback ;
 
-USE `feedback`;
+USE feedback ;
+
+SET NAMES UTF8 ;
 
 CREATE TABLE notes(
-   note_Id INT,
-   note_Valeur_Repas INT,
-   note_Valeur_Environnement INT,
+   note_Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   note_Valeur_Repas INT NOT NULL,
+   note_Valeur_Environnement INT NOT NULL ,
    note_Commentaire VARCHAR(1000),
-   note_Classe_Id VARCHAR(30),
-   note_Valeur_quantite INT,
-   note_Valeur_Qualite INT,
-   note_Valeur_Diversification INT,
-   note_Valeur_Services INT,
-   PRIMARY KEY(note_Id)
-);
+   note_Classe_Id VARCHAR(30) NOT NULL ,
+   FOREIGN KEY(note_Classe_Id) REFERENCES classes(classe_Id)
+)ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE classes(
-   classe_Id INT,
-   classe_libelle VARCHAR(50),
-   PRIMARY KEY(classe_Id)
-);
+   classe_Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   classe_libelle VARCHAR(50) NOT NULL
+)ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE eleve(
+   eleve_Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
    classe_Id INT,
    note_Id INT,
-   PRIMARY KEY(classe_Id, note_Id),
    FOREIGN KEY(classe_Id) REFERENCES classes(classe_Id),
    FOREIGN KEY(note_Id) REFERENCES notes(note_Id)
-);
+)ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE users(
+   user_Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   user_Name VARCHAR(50) NOT NULL,
+   user_Password VARCHAR(50) NOT NULL,
+   user_Droit INT
+)ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+/*CREATE TABLE consulter(
    user_Id INT,
-   user_Name VARCHAR(50),
-   user_Password VARCHAR(50),
-   user_Droit INT,
-   classe_Id INT NOT NULL,
-   PRIMARY KEY(user_Id),
-   FOREIGN KEY(classe_Id) REFERENCES classes(classe_Id)
-);
+   note_Id INT,
+   PRIMARY KEY(user_Id, note_Id),
+   FOREIGN KEY(user_Id) REFERENCES users(user_Id),
+   FOREIGN KEY(note_Id) REFERENCES notes(note_Id)
+);*/
