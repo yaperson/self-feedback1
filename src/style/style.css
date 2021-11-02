@@ -13,7 +13,7 @@ body{
 /***********************************************/
 .topnav {
     overflow: hidden;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 3px 6px 0 rgb(175, 175, 175);
     user-select: none;
     z-index: 200;
@@ -38,21 +38,23 @@ body{
     transition: 0.2s;
   }
   /*****/
-  #footer-navbar {
+  .foo-container {
     display: flex;
     position: absolute;
     justify-content: center;
     align-items: center;
     bottom: 0;
     width: 100%;
-    height: 6%;
-    background: var(--bg-top-bottom);
-    box-shadow: 3px 0 4px 2px rgb(175 175 175 / 72%);
+    height: 164px;
+    color: white;
+    background: #424242;
   }
-  
-  .nav-fo{
-    color: rgb(119, 119, 119); 
+  .bloc {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
   }
+
 /***********************************************/
 
 .error{
