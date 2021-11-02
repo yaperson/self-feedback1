@@ -31,8 +31,8 @@ try {
 } catch(PDOException $e) {
     $error = 'erreur de connection : ' . $e->getMessage();
 }
-echo $twig->render('dashbord.html.twig', [
-    'title' => 'Dashbord',
+echo $twig->render('dashboard.html.twig', [
+    'title' => 'Dashboard',
     'user' => $users,
     'error' => $error,
     ]

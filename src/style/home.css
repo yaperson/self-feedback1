@@ -7,19 +7,6 @@ h1{
     font-size: 5rem;
 }
 
-#target {
-    display: flex;
-    width: 300px;
-    text-align: left;
-    animation: color 30s alternate infinite;
-    perspective: 200px;
-    transform: translateX(26px);
-}
-
-.letter {
-    transform: translateZ(200px);
-}
-
 /***************/
 .main__btn{
     justify-content: center;
@@ -36,10 +23,7 @@ h1{
     position: relative;
     overflow: hidden;
     color: rgb(255, 255, 255);
-    background: linear-gradient(180deg, #2aa1d4 0%, rgba(42, 158, 207, 0.992) 0.01%, rgba(43, 158, 207, 0.65) 99.97%, rgba(41, 157, 207, 0.67) 99.98%, rgba(45, 170, 225, 0.89) 100%);
     mix-blend-mode: normal;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
-    border-radius: 30px;
     cursor: pointer;
     outline: none;
     border: none;
@@ -50,22 +34,6 @@ h1{
 .TxtBtn {
     position: relative;
     pointer-events: none;
-}
-
-#btn5::before{
-    --size: 0px;
-    content: '';
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    background: radial-gradient(circle closest-side , rgb(45, 218, 224), transparent); 
-    width: var(--size);
-    height: var(--size);
-    transform: translate(-50%,-50%);
-    transition: 0.1s ease;
-}
-#btn5:hover::before{
-    --size: 200px;
 }
 
 @media screen and (max-width: 750px) {
@@ -82,21 +50,4 @@ h1{
     #target{
         font-size: 50px;
     }
-}
-
-@keyframes anim {
-    25%{
-        transform: translateZ(0px);
-        opacity: 1;
-    }
-    32%{
-        transform: translateZ(-280px) translateZ(200px);
-        opacity: 0;
-    }
-}
-
-@keyframes color {
-    0%{color: rgb(40, 106, 206);}
-    50%{color: rgb(202, 38, 79);}
-    100%{color: rgb(40, 106, 206);}
 }
