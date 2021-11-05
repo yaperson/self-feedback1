@@ -1,0 +1,9 @@
+.topnav {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    font-size: 1.3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}

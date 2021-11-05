@@ -11,7 +11,7 @@ $logger = new Logger('main');
 
 $logger->pushHandler(new StreamHandler(__DIR__.'/../log/app.log', Logger::DEBUG));  // création anonyme
 
-$logger->info('Start...');
+$logger->info('Start add.php...');
 
 $loader = new FilesystemLoader('../templates');
 
