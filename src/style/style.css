@@ -18,31 +18,37 @@ body{
 }
 /***********************************************/
 .topnav {
-    overflow: hidden;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 3px 6px 0 rgb(175, 175, 175);
-    user-select: none;
-    z-index: 200;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 3px 6px 0 rgb(175, 175, 175);
+  user-select: none;
+  z-index: 200;
+  display: flex;
+  align-items: center
 }
-  
-  .topnav .topnav__link {
-    float: left;
-    color: #181818;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 19px;
-    transition: 0.2s;
-  }
-  #right {
-    float: right;
-    padding-right: 2%;
-  }
-  
-  .topnav .topnav__link:hover {
-    color: #060c18;
-    transition: 0.2s;
-  }
+.topnav .topnav__link {
+  float: left;
+  color: #181818;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  transition: 0.2s;
+}
+#right {
+  float: right;
+  margin-left: 75%;
+  padding-right: 2%;
+}
+.img {
+  width: 37px;
+  height: 34px;
+  left: 11px;
+  top: 7px;
+}
+.topnav .topnav__link:hover {
+  color: #060c18;
+  transition: 0.2s;
+}
   /*****/
   .foo-container {
     display: flex;
