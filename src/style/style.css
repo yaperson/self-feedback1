@@ -24,7 +24,8 @@ body{
   user-select: none;
   z-index: 200;
   display: flex;
-  align-items: center
+  align-items: center;
+  justify-content: space-between;
 }
 .topnav .topnav__link {
   float: left;
@@ -34,14 +35,18 @@ body{
   font-size: 19px;
   transition: 0.2s;
 }
+#left {
+  display: flex;
+  align-items: center;
+}
 #right {
   float: right;
-  margin-left: 75%;
+  /* margin-left: 75%; */
   padding-right: 2%;
 }
 .img {
-  width: 37px;
-  height: 34px;
+  width: 35px;
+  height: 32px;
   left: 11px;
   top: 7px;
 }
