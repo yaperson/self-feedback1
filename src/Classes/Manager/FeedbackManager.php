@@ -89,14 +89,14 @@ class FeedbackManager
         }
     public function getList(): array
     {
-        $userList = array();
+        $Feedbacklist = array();
 
         $request = $this->_db->query('SELECT note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_Id FROM notes;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
-            $user = new User($ligne);
-            $userList[] = $user;
+            $Feedback = new Feedback($ligne);
+            $Feedbacklist[] = $Feedback;
         }
-        return $userList;
+        return $Feedbacklist;
     }
 }
  
