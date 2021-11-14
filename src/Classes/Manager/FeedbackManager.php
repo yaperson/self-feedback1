@@ -33,11 +33,12 @@ class FeedbackManager
         $stmt->execute();
     }
 
-    public function delete($id) //:bool
+    public function delete($id)
     {
         $requete = $this->_db->query('SELECT note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_Id FROM notes;');
         while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)){
             if ($id == $ligne['note_Id']){
+                //requete pas test
                 $stmt = $this->_db->prepare('DELETE FROM notes WHERE  note_Id= ?;');
                 $stmt->bindParam(1,$id);
                 $stmt->execute();

@@ -44,7 +44,7 @@ class Feedback {
     }
 
     /**
-     * Get the value of _note_Valeur_Repas
+     * Get the value of _note_Valeur_Repa
      */ 
     public function get_note_Valeur_Repas()
     {
