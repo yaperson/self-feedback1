@@ -22,12 +22,12 @@ $error = '';
 require_once("conf.php");
 
 try {
-    if (isset($_POST['email'])&&(isset($_POST['password']))){
+    if (isset($_POST['user_Name'])&&(isset($_POST['user_Password']))){
         $db = new PDO($dsn, $usr, $pwd);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $newuser = new UserManager($db);
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $newuser->addUser($_POST['email'], $password);
+        $password = password_hash($_POST['user_Password'], PASSWORD_DEFAULT);
+        $newuser->addUser($_POST['user_Name'], $password);
         header('Location: connect.php');
     }
 } catch(PDOException $e) {

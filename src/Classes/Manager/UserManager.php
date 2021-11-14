@@ -19,15 +19,15 @@ class UserManager
         return $this;
     }
 
-    public function addUser($email, $password)
+    public function addUser($user_Name, $user_Password)
     {
         // Netoyge des donnés envoyées
         // $email = strip_tags($_POST['email']);
         // $password = strip_tags($_POST['password']);
 
-        $stmt = $this->_db->prepare("INSERT INTO users (email, `password`) VALUE (?, ?);");
-        $stmt->bindParam(1, $email);
-        $stmt->bindParam(2, $password);
+        $stmt = $this->_db->prepare("INSERT INTO users (`user_Name`, `user_Password`) VALUE (?, ?);");
+        $stmt->bindParam(1, $user_Name);
+        $stmt->bindParam(2, $user_Password);
 
         // Appel de la procédure stockée
         $stmt->execute();
@@ -45,15 +45,15 @@ class UserManager
         // TODO
     }
 
-    public function connectUser($email, $password)
+    public function connectUser($user_Name, $user_Password)
     {
         session_start();
         $_SESSION["connecter"] = FALSE;
-        $request = $this->_db->query('SELECT id, email, `password` FROM users');
+        $request = $this->_db->query('SELECT `user_Id`, `user_Name`, `user_Password` FROM users');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)){ 
-            if ($email == $ligne['email']){
-               $hash = $ligne['password'];
-               if (password_verify($password, $hash)) {
+            if ($user_Name == $ligne['user_Name']){
+               $hash = $ligne['user_Password'];
+               if (password_verify($user_Password, $hash)) {
                    echo 'Le mot de passe est valide !';
                    $_SESSION['connecter'] = TRUE;
                 } else {
@@ -68,7 +68,7 @@ class UserManager
     {
         $userList = array();
 
-        $request = $this->_db->query('SELECT id, email FROM users;');
+        $request = $this->_db->query('SELECT `user_Id`, `user_Name` FROM users;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
             $user = new User($ligne);
             $userList[] = $user;
