@@ -78,20 +78,19 @@ class FeedbackManager
         //requete fonctionnel je l'ai test
         //l'affichage à tester
         while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)){
-            print("Id : ".$ligne['note_Id']." <br>");
-            print("Note repas : ".$ligne['note_Valeur_Repas']."<br>");
-            print("Note Environement : ".$ligne['note_Valeur_Environnement']."<br>");
-            print("Commentaire : ".$ligne['note_Commentaire']."<br>");
-            print("Classe : ".$ligne['classes.classe_libelle']."<br>");
-            print("<a class='btn btn-primary' href='update.php?id=".$ligne['note_Id']."'>modifier</a><br>");
-            print("<a class='btn btn-primary' href='delete.php?id=".$ligne['note_Id']."'>supprimer</a><br><hr>");
+            print("<tr><th>Id : ".$ligne['note_Id']."</th>");
+            print("<th>Note Environement : ".$ligne['note_Valeur_Environnement']."</th>");
+            print("<th>Commentaire : ".$ligne['note_Commentaire']."</th>");
+            print("<th>Classe : ".$ligne['classes.classe_libelle']."</th>");
+            print("<th><a class='btn btn-primary' href='update.php?id=".$ligne['note_Id']."'>modifier</a></th>");
+            print("<th><a class='btn btn-primary' href='delete.php?id=".$ligne['note_Id']."'>supprimer</a></th></tr>");
         }
         }
     public function getList(): array
     {
         $Feedbacklist = array();
 
-        $request = $this->_db->query('SELECT note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_Id FROM notes;');
+        $request = $this->_db->query('SELECT note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_libelle FROM notes, classes WHERE notes.classe_Id = classes.classe_Id;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
             $Feedback = new Feedback($ligne);
             $Feedbacklist[] = $Feedback;

@@ -22,7 +22,7 @@
         </nav>
     </header>
     <main>
-    <h1>FeedBack - {{ title }}</h1>
+    <h1>FeedBack - {{ title }}</h1> 
         <table>
             <tr>
                 <th>id</th>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
             {% for notes in notes %}
-               <tr><th>{{ notes.id  }}</th> <th>{{ notes.repas }}</th> <th>{{ notes.env }}</th> <th>{{ notes.comment }}</th> <th>{{ notes.classe }}</th></tr>
+               <tr><th>{{ notes.note_Id  }}</th> <th>{{ notes.note_Valeur_Repas }}</th> <th>{{ notes.note_Valeur_Environnement }}</th> <th>{{ notes.note_Commentaire }}</th> <th>{{ notes.classe_Id }}</th></tr>
             {% endfor %}
             </tr>
         </table>

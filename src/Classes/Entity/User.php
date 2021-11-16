@@ -3,9 +3,10 @@ namespace App\Classes\Entity;
 
 class User {
 
-    private $_id ;
-    private $_email ;
-    private $_password ;
+    public $id ;
+    public $email ;
+    private $password ;
+    private $droit ;
 
     public function __construct(array $ligne)
     {
@@ -15,7 +16,7 @@ class User {
     public function hydrate(array $ligne)
     {
         foreach($ligne as $key => $value){
-            $method = 'set'.ucfirst($key);
+            $method = 'set'.$key;
             if (method_exists($this, $method)) {
                 $this->$method($value); // on appel une methode qui est dans la variable donc on ajoute un $
             }
@@ -24,7 +25,7 @@ class User {
     public function __toString():string
     {
         return $this->getEmail();
-    }
+     }
 
 
         /**
@@ -32,7 +33,7 @@ class User {
      */ 
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
@@ -40,9 +41,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setId($_id)
+    public function setuser_Id($_id)
     {
-        $this->_id = $_id;
+        $this->id = $_id;
 
         return $this;
     }
@@ -50,19 +51,19 @@ class User {
     /**
      * Get the value of _email
      */ 
-    public function getEmail()
+   /* public function getEmail()
     {
-        return $this->_email;
-    }
+        return $this->email;
+    }*/
 
     /**
      * Set the value of _email
      *
      * @return  self
      */ 
-    public function setEmail($_email)
+    public function setuser_Name($_email)
     {
-        $this->_email = $_email;
+        $this->email = $_email;
 
         return $this;
     }
@@ -72,7 +73,7 @@ class User {
      */ 
     public function getPassword()
     {
-        return $this->_password;
+        return $this->password;
     }
 
     /**
@@ -82,7 +83,7 @@ class User {
      */ 
     public function setPassword($_password)
     {
-        $this->_password = password_hash($_password, PASSWORD_BCRYPT);
+        $this->password = password_hash($_password, PASSWORD_BCRYPT);
 
         return $this;
     }

@@ -27,7 +27,6 @@ try {
     $UserManager = new UserManager($db);
     
     $users = $UserManager->getList();
-          
 } catch(PDOException $e) {
     $error = 'erreur de connection : ' . $e->getMessage();
 }

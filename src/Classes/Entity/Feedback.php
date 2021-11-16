@@ -3,11 +3,11 @@ namespace App\Classes\Entity;
 
 class Feedback {
 
-    private $_note_Id ;
-    private $_note_Valeur_Repas ;
-    private $_note_Valeur_Environnement ;
-    private $_note_Commentaire ;
-    private $_classe_Id ;
+    public $note_Id ;
+    public $note_Valeur_Repas ;
+    public $note_Valeur_Environnement ;
+    public $note_Commentaire ;
+    public $classe_libelle ;
 
     public function __construct(array $ligne)
     {
@@ -17,7 +17,7 @@ class Feedback {
     public function hydrate(array $ligne)
     {
         foreach($ligne as $key => $value){
-            $method = 'set'.ucfirst($key);
+            $method = 'set'.$key;
             if (method_exists($this, $method)) {
                 $this->$method($value); // on appel une methode qui est dans la variable donc on ajoute un $
             }
@@ -26,9 +26,9 @@ class Feedback {
     /**
      * Get the value of _note_Id
      */ 
-    public function get_note_Id()
+    public static function get_note_Id()
     {
-        return $this->_note_Id;
+        return $this->note_Id;
     }
 
     /**
@@ -36,9 +36,9 @@ class Feedback {
      *
      * @return  self
      */ 
-    public function set_note_Id($_note_Id)
+    public function setnote_Id($_note_Id)
     {
-        $this->_note_Id = $_note_Id;
+        $this->note_Id = $_note_Id;
 
         return $this;
     }
@@ -48,7 +48,7 @@ class Feedback {
      */ 
     public function get_note_Valeur_Repas()
     {
-        return $this->_note_Valeur_Repas;
+        return $this->note_Valeur_Repas;
     }
 
     /**
@@ -56,9 +56,9 @@ class Feedback {
      *
      * @return  self
      */ 
-    public function set_note_Valeur_Repas($_note_Valeur_Repas)
+    public function setnote_Valeur_Repas($_note_Valeur_Repas)
     {
-        $this->_note_Valeur_Repas = $_note_Valeur_Repas;
+        $this->note_Valeur_Repas = $_note_Valeur_Repas;
 
         return $this;
     }
@@ -68,7 +68,7 @@ class Feedback {
      */ 
     public function get_note_Commentaire()
     {
-        return $this->_note_Commentaire;
+        return $this->note_Commentaire;
     }
 
     /**
@@ -76,9 +76,9 @@ class Feedback {
      *
      * @return  self
      */ 
-    public function set_note_Commentaire($_note_Commentaire)
+    public function setnote_Commentaire($_note_Commentaire)
     {
-        $this->_note_Commentaire = $_note_Commentaire;
+        $this->note_Commentaire = $_note_Commentaire;
 
         return $this;
     }
@@ -88,7 +88,7 @@ class Feedback {
      */ 
     public function get_note_Valeur_Environnement()
     {
-        return $this->_note_Valeur_Environnement;
+        return $this->note_Valeur_Environnement;
     }
 
     /**
@@ -96,9 +96,9 @@ class Feedback {
      *
      * @return  self
      */ 
-    public function set_note_Valeur_Environnement($_note_Valeur_Environnement)
+    public function setnote_Valeur_Environnement($_note_Valeur_Environnement)
     {
-        $this->_note_Valeur_Environnement = $_note_Valeur_Environnement;
+        $this->note_Valeur_Environnement = $_note_Valeur_Environnement;
 
         return $this;
     }
@@ -106,9 +106,9 @@ class Feedback {
     /**
      * Get the value of _classe_Id
      */ 
-    public function get_classe_Id()
+    public function get_classe_libelle()
     {
-        return $this->_classe_Id;
+        return $this->classe_Id;
     }
 
     /**
@@ -116,9 +116,9 @@ class Feedback {
      *
      * @return  self
      */ 
-    public function set_classe_Id($_classe_Id)
+    public function setclasse_libelle($_classe_Id)
     {
-        $this->_classe_Id = $_classe_Id;
+        $this->classe_Id = $_classe_Id;
 
         return $this;
     }

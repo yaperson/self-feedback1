@@ -30,7 +30,7 @@ try {
         // $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $newuser->connectUser($_POST['email'], $password);
         if ($_SESSION['connecter'] = TRUE){
-        header('Location: dashbord.php');
+        header('Location: dashboard.php');
         }
     }
      

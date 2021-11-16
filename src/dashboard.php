@@ -32,9 +32,9 @@ try {
     $error = 'erreur de connection : ' . $e->getMessage();
 }
 echo $twig->render('dashboard.html.twig', [
-    'title' => 'Dashboard',/*
+    'title' => 'Dashboard',
     'user' => $users,
-    'error' => $error,*/
+    'error' => $error,
     ]
 );  
 
