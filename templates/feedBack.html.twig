@@ -21,11 +21,60 @@
     <main>
 
         <form method="POST" >
-            <textarea class="login_inputs" name="comment" rows="5" cols="33" placeholder="Commentaire... "></textarea>
-
-            <div class="bottom_button"> <input class="login_inputs" id="submit" type="submit"> </div>
+            <h1 class="login_title"> Donnez votre avis ! </h1>
+            {# <label for="rating_repas">Note repas :</label> #}
+            <label>
+                <input class="radio_inputs" value="1" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-of" id="1" >
+                <img src="/images/star2.svg" class="rating__star-on" id="1">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="2" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-of" id="2">
+                <img src="/images/star2.svg" class="rating__star-on" id="2">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="3" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-of" id="3">
+                <img src="/images/star2.svg" class="rating__star-on" id="3">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="4" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-of" id="4">
+                <img src="/images/star2.svg" class="rating__star-on" id="4">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="5" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-of" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <br>
+            <br>
+            <br>
+            <label for="rating_env">Note Environnement :</label>
+            <input class="radio_inputs" value="1" type="radio" name="rating_env">
+            <input class="radio_inputs" value="2" type="radio" name="rating_env" >
+            <input class="radio_inputs" value="3" type="radio" name="rating_env" >
+            <input class="radio_inputs" value="4" type="radio" name="rating_env" >
+            <input class="radio_inputs" value="5" type="radio" name="rating_env" > <br>
+            <label for="comment">Commentaire :</label>
+            <textarea rows="10" cols="30" name="comment"></textarea>
+            <label for="classe">Votre classe :</label>
+            <select name="classe">
+                <option value="">--Please choose an option--</option>
+                <option value="1">BTS SIO2</option>
+                <option value="2">BTS SIO1</option>
+                <option value="3">BTS SAM2</option>
+                <option value="4">BTS SAM1</option>
+                <option value="5">BTS GPME2</option>
+                <option value="6">BTS GPME1</option>
+            </select><br><br>
+            
+            <input class="login_inputs" id="btn5" type="submit">
         </form>   
     </main>
-
+{% block javascripts %}
+    <script src="script/star-rating.js"></script>
+{% endblock %}
 </body>
 </html>
