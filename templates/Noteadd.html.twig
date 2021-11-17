@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/login.css">
-    <title>nouvel Note</title>
+    <title>nouvelle Note</title>
 </head>
 <body>
     {% if error != '' %}
@@ -41,12 +41,9 @@
             <label for="classe">Votre classe :</label>
             <select name="classe">
                 <option value="">--Please choose an option--</option>
-                <option value="1">BTS SIO2</option>
-                <option value="2">BTS SIO1</option>
-                <option value="3">BTS SAM2</option>
-                <option value="4">BTS SAM1</option>
-                <option value="5">BTS GPME2</option>
-                <option value="6">BTS GPME1</option>
+                {% for classes in classes %}
+               <option value='{{ classes.classe_Id  }}'>{{ classes.classe_Id  }} - {{ classes.classe_libelle }}</option>
+                 {% endfor %}
             </select><br><br>
             
             <input class="login_inputs" id="btn5" type="submit">
