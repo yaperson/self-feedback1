@@ -32,7 +32,7 @@ textarea {
 .radio_inputs{
     opacity: 0;
 }
- .rating__star-of {
+ .rating__star-off {
     position: absolute;
  }
  .rating__star-on {
