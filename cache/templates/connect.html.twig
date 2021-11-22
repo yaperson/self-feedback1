@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/login.css">
+    <title>connection</title>
+</head>
+<body>
+    {% if error != '' %}
+        <div class="error">{{error}}</div>    
+    {% endif %}
+    <header>
+        <nav class="topnav" id="myTopnav">
+          <div id="left">
+            <img class="topnav__link img" src="/images/cropped-cropped-NDLP-3-min-e1544695116495.png">
+            <span class="topnav__link">Notre Dame de la Providence</span>
+          </div>
+          <a class="topnav__link" id="right" href="connect.php">| Login</a>
+        </nav>
+    </header>
+    <main>
+        <div class="login_form">
+                <h1 class="login_title"> Connectez vous </h1>
+                {# <img class="login_cancel" src="/images/cancel.png"> #}
+            <form method="POST" >
+                <input class="login_inputs" type="email" name="email" required="" placeholder="email"> <br>
+                <input class="login_inputs" type="password" name="password" required="" placeholder="password"> <br>
+                <input class="login_inputs" id="btn5" type="submit">
+            </form>   
+        </div>
+    </main>
+</body>
+</html>
