@@ -1,0 +1,56 @@
+.topnav {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    max-width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 80%;
+}
+
+textarea {
+    display: block;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    color: rgb(112, 112, 112);
+    background: #FFFFFF;
+    box-shadow: inset 2px 4px 16px -3px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+.radio_inputs{
+    opacity: 0;
+}
+ .rating__star-off {
+    position: absolute;
+ }
+ .rating__star-on {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    color: #2DAAE1;
+ }
+ .rating__star-on:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: #2DAAE1;
+ }
+
+/* .bottom_button {
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 12px 3px rgb(175, 175, 175);
+    user-select: none;
+    z-index: 200;
+    bottom: 0;
+    width: 100%;
+} */
