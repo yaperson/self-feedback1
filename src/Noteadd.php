@@ -38,7 +38,8 @@ try {
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $newuser = new FeedbackManager($db);
         
-        $newuser->addNote($_POST['rating_repas'], $_POST['rating_env'], $_POST['comment'], $_POST['classe']);
+        $date = date('Y-m-d');
+        $newuser->addNote($_POST['rating_repas'], $_POST['rating_env'], $_POST['comment'], $_POST['classe'], $date);
         header('Location: connect.php');
     }
 } catch(PDOException $e) {

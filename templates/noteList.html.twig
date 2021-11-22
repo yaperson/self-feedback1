@@ -30,10 +30,11 @@
                 <th>Note environnement</th>
                 <th>Commentaire</th>
                 <th>Classe</th>
+                <th>date</th>
             </tr>
             <tr>
             {% for notes in notes %}
-               <tr><th>{{ notes.note_Id  }}</th> <th>{{ notes.note_Valeur_Repas }}</th> <th>{{ notes.note_Valeur_Environnement }}</th> <th>{{ notes.note_Commentaire }}</th> <th>{{ notes.classe_Id }}</th></tr>
+               <tr><th>{{ notes.note_Id  }}</th> <th>{{ notes.note_Valeur_Repas }}</th> <th>{{ notes.note_Valeur_Environnement }}</th> <th>{{ notes.note_Commentaire }}</th> <th>{{ notes.classe_Id }}</th><th>{{ notes.note_date }}</th></tr>
             {% endfor %}
             </tr>
         </table>

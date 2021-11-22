@@ -27,7 +27,6 @@ try {
     $FeedbackManager = new FeedbackManager($db);
 
     $notes = $FeedbackManager->getList();
-
 } catch(PDOException $e) {
     $error = 'erreur de connection : ' . $e->getMessage();
 }
