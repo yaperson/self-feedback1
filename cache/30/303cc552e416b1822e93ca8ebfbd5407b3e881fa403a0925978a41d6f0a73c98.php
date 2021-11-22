@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* feedback.html.twig */
+/* feedBack.html.twig */
 class __TwigTemplate_f55a4fe13532d1253bf6bc83955cbcf4cf1f544b324491cee6e1f8d14f0d2ec0 extends Template
 {
     private $source;
@@ -60,10 +60,6 @@ class __TwigTemplate_f55a4fe13532d1253bf6bc83955cbcf4cf1f544b324491cee6e1f8d14f0
         <nav class=\"topnav\" id=\"myTopnav\">
           <span class=\"topnav__link\">FEEDBACK SELF</span>
         </nav>
-        <h1>";
-        // line 19
-        echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
-        echo "</h1>
     </header>
     <main>
 
@@ -72,28 +68,53 @@ class __TwigTemplate_f55a4fe13532d1253bf6bc83955cbcf4cf1f544b324491cee6e1f8d14f0
             <label for=\"rating_repas\">Note repas :</label><br><br>
             <label>
                 <input class=\"radio_inputs\" value=\"1\" type=\"radio\" name=\"rating_repas\" >
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"1\" >
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"1\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
                 <input class=\"radio_inputs\" value=\"2\" type=\"radio\" name=\"rating_repas\" >
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"2\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"2\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
                 <input class=\"radio_inputs\" value=\"3\" type=\"radio\" name=\"rating_repas\" >
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"3\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"3\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
                 <input class=\"radio_inputs\" value=\"4\" type=\"radio\" name=\"rating_repas\" >
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"4\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"4\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
                 <input class=\"radio_inputs\" value=\"5\" type=\"radio\" name=\"rating_repas\" >
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"5\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"5\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <br>
             <br>
@@ -101,81 +122,106 @@ class __TwigTemplate_f55a4fe13532d1253bf6bc83955cbcf4cf1f544b324491cee6e1f8d14f0
             <label for=\"rating_env\">Note Environnement :</label> <br><br>
             <label>
                 <input class=\"radio_inputs\" value=\"1\" type=\"radio\" name=\"rating_env\">
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"5\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"5\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
             <input class=\"radio_inputs\" value=\"2\" type=\"radio\" name=\"rating_env\">
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"5\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"5\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>            
             <input class=\"radio_inputs\" value=\"3\" type=\"radio\" name=\"rating_env\">
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"5\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"5\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
                 <input class=\"radio_inputs\" value=\"4\" type=\"radio\" name=\"rating_env\">
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"5\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"5\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <label>
                 <input class=\"radio_inputs\" value=\"5\" type=\"radio\" name=\"rating_env\">
-                <img src=\"/images/star.svg\" class=\"rating__star-off\" id=\"5\">
-                <img src=\"/images/star2.svg\" class=\"rating__star-on\" id=\"5\">
+                <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
+                    width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
+                <g>
+                    <polygon class=\"rating__star-off\" fill=\"#2DAAE1\" points=\"20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 \t\"/>
+                </g>
+                </svg>
             </label>  
             <br>
             <br>
             <br>
             <label for=\"comment\">Commentaire :</label>
-            <textarea rows=\"10\" cols=\"30\" name=\"comment\"></textarea>
+            <textarea rows=\"10\" cols=\"40\" name=\"comment\"></textarea>
             <label for=\"classe\">Votre classe :</label>
             <select name=\"classe\">
                 <option value=\"\">--Please choose an option--</option>
                 ";
-        // line 88
+        // line 137
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["classes"]);
         foreach ($context['_seq'] as $context["_key"] => $context["classes"]) {
-            // line 89
+            // line 138
             echo "               <option value='";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classes"], "classe_Id", [], "any", false, false, false, 89), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classes"], "classe_Id", [], "any", false, false, false, 138), "html", null, true);
             echo "'>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classes"], "classe_Id", [], "any", false, false, false, 89), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classes"], "classe_Id", [], "any", false, false, false, 138), "html", null, true);
             echo " - ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classes"], "classe_libelle", [], "any", false, false, false, 89), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["classes"], "classe_libelle", [], "any", false, false, false, 138), "html", null, true);
             echo "</option>
                  ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['classes'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 91
+        // line 140
         echo "            </select><br><br>
             
             <input class=\"login_inputs\" id=\"btn5\" type=\"submit\">
         </form>   
     </main>
 ";
-        // line 96
+        // line 145
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 99
+        // line 148
         echo "</body>
 </html>";
     }
 
-    // line 96
+    // line 145
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 97
+        // line 146
         echo "    <script src=\"script/star-rating.js\"></script>
 ";
     }
 
     public function getTemplateName()
     {
-        return "feedback.html.twig";
+        return "feedBack.html.twig";
     }
 
     public function isTraitable()
@@ -185,11 +231,11 @@ class __TwigTemplate_f55a4fe13532d1253bf6bc83955cbcf4cf1f544b324491cee6e1f8d14f0
 
     public function getDebugInfo()
     {
-        return array (  172 => 97,  168 => 96,  163 => 99,  161 => 96,  154 => 91,  141 => 89,  137 => 88,  65 => 19,  59 => 15,  53 => 13,  51 => 12,  38 => 1,);
+        return array (  218 => 146,  214 => 145,  209 => 148,  207 => 145,  200 => 140,  187 => 138,  183 => 137,  59 => 15,  53 => 13,  51 => 12,  38 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("", "feedback.html.twig", "D:\\cours\\BTS SIO2\\feedback-main\\self-feedback1\\templates\\feedBack.html.twig");
+        return new Source("", "feedBack.html.twig", "D:\\cours\\BTS SIO2\\feedback-main\\self-feedback1\\templates\\feedBack.html.twig");
     }
 }
