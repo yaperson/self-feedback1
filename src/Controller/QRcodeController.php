@@ -34,7 +34,7 @@ class QRcodeController extends AbstractController
         $writer = new PngWriter();
 
         // Create QR code
-        $qrCode = QrCode::create('www.google.com')
+        $qrCode = QrCode::create('https://github.com/ndlaprovidence/self-feedback1/projects/1')
             ->setEncoding(new Encoding('UTF-8'))
             ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
             ->setSize(500)
