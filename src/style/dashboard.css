@@ -56,23 +56,37 @@ main {
     padding: 10px;
     flex-wrap: wrap;
     flex-direction: column;
+    margin-top: 30%;
 }
 
 table {
     border: solid #424242 1px;
     width: 100%;
-}
+}    
 tr {
     background-color:#2dabe10c;
 }
+
 .table_title {
     background-color:#2dabe131;
 }
 
+.table_star {
+    width: 20px;
+    padding: 10px;
+}
+
 .btn_container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 10px;
+}
+
+.btn_container a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
 }
 
 #btn5{

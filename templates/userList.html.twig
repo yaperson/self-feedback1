@@ -38,9 +38,13 @@
     </header>
     <main>
     <div class="bloc_dashboard">
-    <h1>FeedBack - {{ title }}</h1>
+        <div class="btn_container">
+            <h1>FeedBack - {{ title }}</h1>
+            <a href="add.php"><button id="btn5">Add users</button></a>
+        </div>
+
         <table>
-            <tr>
+            <tr class="table_title">
                 <th>id</th>
                 <th>email</th>
             </tr>
@@ -50,9 +54,6 @@
             {% endfor %}
             </tr>
         </table>
-        <div class="btn_container">
-            <a href="add.php"><button id="btn5">Add users</button></a>
-        </div>
     </div>
     </main>
 </body>

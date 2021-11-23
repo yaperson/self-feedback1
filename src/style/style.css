@@ -1,8 +1,8 @@
 html{
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
+
 body{
     display: grid;
     margin: 0;
@@ -27,6 +27,8 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
 }
 .topnav .topnav__link {
   float: left;
@@ -63,7 +65,7 @@ body{
     align-items: center;
     bottom: 0;
     width: 100%;
-    height: 164px;
+    /* height: 164px; */
     color: white;
     background: #424242;
   }
