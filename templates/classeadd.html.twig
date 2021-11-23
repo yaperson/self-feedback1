@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/login.css">
+    <title>nouvel Note</title>
+</head>
+<body>
+    {% if error != '' %}
+        <div class="error">{{error}}</div>    
+    {% endif %}
+    <header>
+        <nav class="topnav" id="myTopnav">
+          <div id="left">
+            <img class="topnav__link img" src="/images/cropped-cropped-NDLP-3-min-e1544695116495.png">
+            <span class="topnav__link">Notre Dame de la Providence</span>
+          </div>
+          <a class="topnav__link" id="right" href="#">| Login</a>
+        </nav>
+    </header>
+    <main>
+        <form method="POST" class="login_form">
+            <h1 class="login_title"> Ajoutez une classes ! </h1>
+            <label for="classe_libelle">Libellé :</label>
+            <input class="login_inputs" placeholder="Libellé" type="text" name="classe_libelle" ><br/>
+            <input class="login_inputs" id="btn5" type="submit">
+        </form>
+    </main>
+</body>
+</html>

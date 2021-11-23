@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/feedBack.css">
+    <title>FeedBack - self</title>
+</head>
+<body>
+    {% if error != '' %}
+        <div class="error">{{error}}</div>    
+    {% endif %}
+    <header>
+        <nav class="topnav" id="myTopnav">
+          <span class="topnav__link">FEEDBACK SELF</span>
+        </nav>
+    </header>
+    <main>
+
+        <form method="POST" >
+            <h1 class="login_title"> Donnez votre avis ! </h1>
+            <label for="rating_repas">Note repas :</label><br><br>
+            <label>
+                <input class="radio_inputs" value="1" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-off" id="1" >
+                <img src="/images/star2.svg" class="rating__star-on" id="1">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="2" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-off" id="2">
+                <img src="/images/star2.svg" class="rating__star-on" id="2">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="3" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-off" id="3">
+                <img src="/images/star2.svg" class="rating__star-on" id="3">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="4" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-off" id="4">
+                <img src="/images/star2.svg" class="rating__star-on" id="4">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="5" type="radio" name="rating_repas" >
+                <img src="/images/star.svg" class="rating__star-off" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <br>
+            <br>
+            <br>
+            <label for="rating_env">Note Environnement :</label> <br><br>
+            <label>
+                <input class="radio_inputs" value="1" type="radio" name="rating_env">
+                <img src="/images/star.svg" class="rating__star-off" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <label>
+            <input class="radio_inputs" value="2" type="radio" name="rating_env">
+                <img src="/images/star.svg" class="rating__star-off" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <label>            
+            <input class="radio_inputs" value="3" type="radio" name="rating_env">
+                <img src="/images/star.svg" class="rating__star-off" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="4" type="radio" name="rating_env">
+                <img src="/images/star.svg" class="rating__star-off" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <label>
+                <input class="radio_inputs" value="5" type="radio" name="rating_env">
+                <img src="/images/star.svg" class="rating__star-off" id="5">
+                <img src="/images/star2.svg" class="rating__star-on" id="5">
+            </label>  
+            <br>
+            <br>
+            <br>
+            <label for="comment">Commentaire :</label>
+            <textarea rows="10" cols="30" name="comment"></textarea>
+            <label for="classe">Votre classe :</label>
+            <select name="classe">
+                <option value="">--Please choose an option--</option>
+                {% for classes in classes %}
+               <option value='{{ classes.classe_Id  }}'>{{ classes.classe_Id  }} - {{ classes.classe_libelle }}</option>
+                 {% endfor %}
+            </select><br><br>
+            
+            <input class="login_inputs" id="btn5" type="submit">
+        </form>   
+    </main>
+{% block javascripts %}
+    <script src="script/star-rating.js"></script>
+{% endblock %}
+</body>
+</html>
