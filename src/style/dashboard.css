@@ -68,12 +68,16 @@ tr {
 }
 
 .table_title {
-    background-color:#2dabe131;
+    background-color:#2dabe169;
 }
 
 .table_star {
     width: 20px;
     padding: 10px;
+}
+
+.table_id {
+    background-color:#42424269;
 }
 
 .btn_container {
