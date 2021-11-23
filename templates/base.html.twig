@@ -12,8 +12,8 @@
     </title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css" >
-    <link rel="stylesheet" href="css/starter-template.css" >
+    <link rel="stylesheet" href="/css/bootstrap.css" >
+    <link rel="stylesheet" href="/css/starter-template.css" >
 
     <!-- Bootstrap core JS    # MIS EN COMMENTAIRE CAR BUGUE, A REGLER # 
     <script src="js/bootstrap.js" > -->
@@ -42,7 +42,10 @@
             <a class="nav-link" href="{{ path('user_index') }}">{{'Users list'|trans}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="{{ path('student_index') }}">{{'Rate list'|trans}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('student_index') }}">{{'Classe list'|trans}}</a>
           </li>
           <!--<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>

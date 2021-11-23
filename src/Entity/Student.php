@@ -38,7 +38,7 @@ class Student
     private $note_date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=classes::class, inversedBy="students")
+     * @ORM\ManyToOne(targetEntity=Classes::class, inversedBy="students")
      */
     private $classe;
 
