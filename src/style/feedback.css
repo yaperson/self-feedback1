@@ -43,6 +43,16 @@ textarea {
     background-color: #2DAAE1;
     fill:#2DAAE1;
  }
+ .rating__star-sel {
+    opacity: 1;
+    background-color: #2DAAE1;
+    fill:#2DAAE1;
+ }
+ .rating__star-on {
+    opacity: 1;
+    background-color: #2DAAE1;
+    fill:#2DAAE1;
+ }
 
 /* .bottom_button {
     overflow: hidden;

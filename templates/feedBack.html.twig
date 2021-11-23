@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/style/feedBack.css">
     <title>FeedBack - self</title>
 </head>
-<body>
+<body onload="init()">
     {% if error != '' %}
         <div class="error">{{error}}</div>    
     {% endif %}
@@ -33,7 +33,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="2" type="radio" name="rating_repas" >
+                <input class="radio_inputs" value="2" type="radio" name="rating_repas">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
