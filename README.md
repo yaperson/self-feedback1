@@ -1,2 +1,2 @@
 # Feedback_symfony
->Ceci est une **zone en retrait**.
+Activate extension *extension=fileinfo* and *extension=gd2* in the php.ini file. 
