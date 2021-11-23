@@ -37,7 +37,7 @@ class QRcodeController extends AbstractController
         $qrCode = QrCode::create('www.google.com')
             ->setEncoding(new Encoding('UTF-8'))
             ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
-            ->setSize(300)
+            ->setSize(500)
             ->setMargin(10)
             ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
             ->setForegroundColor(new Color(0, 0, 0))
@@ -48,8 +48,8 @@ class QRcodeController extends AbstractController
             ->setResizeToWidth(50);
         
         // Create generic label
-        $label = Label::create('Label')
-            ->setTextColor(new Color(255, 0, 0));
+        $label = Label::create('Scannez pour accéder au questionnaire !')
+            ->setTextColor(new Color(92, 119, 209));
         
         $result = $writer->write($qrCode, $logo, $label);     
 
@@ -57,6 +57,7 @@ class QRcodeController extends AbstractController
 
         return $this->render('qrcode/index.html.twig', [
             'data_url' => $dataUri,
+            'title' => "QR code",
         ]);
 
 
