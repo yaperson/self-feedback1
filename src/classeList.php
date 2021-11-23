@@ -30,6 +30,7 @@ try {
 
 } catch(PDOException $e) {
     $error = 'erreur de connection : ' . $e->getMessage();
+    $logger->error($error);
 }
 echo $twig->render('classeList.html.twig', [
     'title' => 'Liste des classes',

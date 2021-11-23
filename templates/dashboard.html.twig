@@ -23,7 +23,7 @@
             <span class="leftnav__separateBar"></span>
             <div class="leftnav__param">
                 <a class="topnav__link" href="#">| Rapports</a>
-                <a class="topnav__link" href="#">| Gestion des classes</a>
+                <a class="topnav__link" href="classeList.php">| Gestion des classes</a>
                 <a class="topnav__link" href="userList.php">| Gestion des utilisateurs</a>
             </div>
         </nav>
@@ -37,10 +37,10 @@
         </nav>
     </header>
     <main>
-    <div class="bloc">
+    <div class="bloc_dashboard">
     <h1>FeedBack - {{ title }}</h1> 
         <table>
-            <tr>
+            <tr class="table_title">
                 <th>id</th>
                 <th>Note repas</th>
                 <th>Note environnement</th>
@@ -53,7 +53,11 @@
             {% endfor %}
             </tr>
         </table>
-        <a href="feedBack.php">Add Note</a>
+        
+        <div class="btn_container">
+            <a href="feedBack.php"><button id="btn5">Add note</button></a>
+        </div>
+        
     </main>
     </div>
 </body>

@@ -32,6 +32,7 @@ try {
     }
 } catch(PDOException $e) {
     print('erreur de connection : ' . $e->getMessage());
+    $logger->error($error);
 }
 echo $twig->render('add.html.twig', [
     'title' => 'Nouvel utilisateur',

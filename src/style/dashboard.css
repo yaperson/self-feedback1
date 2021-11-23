@@ -51,9 +51,32 @@ main {
     z-index: 1000;
 }
 
-.bloc {
+.bloc_dashboard {
     display: flex;
     padding: 10px;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+table {
+    border: solid #424242 1px;
+    width: 100%;
+}
+tr {
+    background-color:#2dabe10c;
+}
+.table_title {
+    background-color:#2dabe131;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#btn5{
+    color: white;
+    width: 300px;
+    height: 40px;
 }

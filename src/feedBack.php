@@ -44,6 +44,7 @@ try {
     }
 } catch(PDOException $e) {
     print('erreur de connection : ' . $e->getMessage());
+    $logger->error($error);
 }
 echo $twig->render('feedBack.html.twig', [
     'classes' => $classe,
