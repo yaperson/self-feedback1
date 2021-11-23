@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/style/feedBack.css">
     <title>FeedBack - self</title>
 </head>
-<body onload="init()">
+<body>
     {% if error != '' %}
         <div class="error">{{error}}</div>    
     {% endif %}
@@ -140,7 +140,7 @@
             </select><br><br>
             
             <input class="login_inputs" id="btn5" type="submit">
-        </form>   
+        </form>
     </main>
 {% block javascripts %}
     <script src="script/star-rating.js"></script>
