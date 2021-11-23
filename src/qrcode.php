@@ -1,10 +1,11 @@
 <?php
 require_once '../vendor/autoload.php';
 include('phpqrcode/qrlib.php'); //On inclut la librairie au projet
+use PDO;
 use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+use Monolog\Handler\StreamHandler;
 use App\Classes\Manager\FeedbackManager;
 
 $logger = new Logger('main');
@@ -22,6 +23,7 @@ $error = '';
 $lien='https://github.com/ndlaprovidence/self-feedback1'; // Vous pouvez modifier le lien selon vos besoins
 QRcode::png($lien, 'image-qrcode.png'); // On crée notre QR Code
 require_once("conf.php");
+
 
 try {
     $db = new PDO($dsn, $usr, $pwd);
