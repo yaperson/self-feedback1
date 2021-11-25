@@ -101,7 +101,7 @@ class __TwigTemplate_b35025051ba2c05cd669b30c27d0ede2e74b02e81e35d9ecb830c1345e1
             ";
         // line 55
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($context["notes"]);
+        $context['_seq'] = twig_ensure_traversable(twig_reverse_filter($this->env, $context["notes"]));
         foreach ($context['_seq'] as $context["_key"] => $context["notes"]) {
             // line 56
             echo "               <tr><th class=\"table_id\">";

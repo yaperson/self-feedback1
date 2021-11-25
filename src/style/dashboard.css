@@ -72,6 +72,10 @@
         background-color: #2dabe136;
     }
     
+    .table_id:focus-within  {
+        background-color: #2dabe16c;
+    }
+    
     .table_title {
         background-color: #b8e6fa;
         position: sticky;
