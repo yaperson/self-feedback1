@@ -19,16 +19,17 @@ class FeedbackManager
         return $this;
     }
 
-    public function addNote($valeur_repas, $valeur_env, $commentaire, $classe_id)
+    public function addNote($valeur_repas, $valeur_env, $commentaire, $classe_id, $date)
     {
         // Netoyge des donnés envoyées
         // $email = strip_tags($_POST['email']);
         // $password = strip_tags($_POST['password']);
-        $stmt = $this->_db->prepare("INSERT INTO notes (note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_Id) VALUE (?, ?, ?, ?);");
+        $stmt = $this->_db->prepare("INSERT INTO notes (note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_Id, note_date) VALUE (?, ?, ?, ?,?);");
         $stmt->bindParam(1, $valeur_repas);
         $stmt->bindParam(2, $valeur_env);
         $stmt->bindParam(3, $commentaire);
         $stmt->bindParam(4, $classe_id);
+        $stmt->bindParam(5, $date);
         // Appel de la procédure stockée
         $stmt->execute();
     }
@@ -90,7 +91,7 @@ class FeedbackManager
     {
         $Feedbacklist = array();
 
-        $request = $this->_db->query('SELECT note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_libelle FROM notes, classes WHERE notes.classe_Id = classes.classe_Id;');
+        $request = $this->_db->query('SELECT note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_Commentaire, classe_libelle, note_date FROM notes, classes WHERE notes.classe_Id = classes.classe_Id;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
             $Feedback = new Feedback($ligne);
             $Feedbacklist[] = $Feedback;

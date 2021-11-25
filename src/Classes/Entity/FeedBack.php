@@ -8,6 +8,7 @@ class Feedback {
     public $note_Valeur_Environnement ;
     public $note_Commentaire ;
     public $classe_libelle ;
+    public $note_date;
 
     public function __construct(array $ligne)
     {
@@ -26,7 +27,7 @@ class Feedback {
     /**
      * Get the value of _note_Id
      */ 
-    public static function get_note_Id()
+    public function get_note_Id()
     {
         return $this->note_Id;
     }
@@ -119,6 +120,18 @@ class Feedback {
     public function setclasse_libelle($_classe_Id)
     {
         $this->classe_Id = $_classe_Id;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of note_date
+     *
+     * @return  self
+     */ 
+    public function setnote_date($note_date)
+    {
+        $this->note_date = $note_date;
 
         return $this;
     }

@@ -38,9 +38,9 @@ try {
         $db = new PDO($dsn, $usr, $pwd);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $newuser = new FeedbackManager($db);
-        $newuser->addNote($_POST['rating_repas'], $_POST['rating_env'], $_POST['comment'], $_POST['classe']);
-        //header('Location: connect.php');
-        // print("note enregistré ".$_POST['rating_repas']." ".$_POST['rating_env']." ".$_POST['comment']." ".$_POST['classe']);
+
+        $date = date('Y-m-d');
+        $newuser->addNote($_POST['rating_repas'], $_POST['rating_env'], $_POST['comment'], $_POST['classe'], $date);
     }
 } catch(PDOException $e) {
     print('erreur de connection : ' . $e->getMessage());
