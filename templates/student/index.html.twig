@@ -13,7 +13,7 @@
                 <th>Note_Valeur_Environnement</th>
                 <th>Note_Commentaire</th>
                 <th>Note_date</th>
-                <th>actions</th>
+                {# <th>actions</th> #}
             </tr>
         </thead>
         <tbody>
@@ -24,10 +24,10 @@
                 <td>{{ student.noteValeurEnvironnement }}</td>
                 <td>{{ student.noteCommentaire }}</td>
                 <td>{{ student.noteDate ? student.noteDate|date('Y-m-d') : '' }}</td>
-                <td>
+                {# <td>
                     <a href="{{ path('student_show', {'id': student.id}) }}">show</a>
                     <a href="{{ path('student_edit', {'id': student.id}) }}">edit</a>
-                </td>
+                </td> #}
             </tr>
         {% else %}
             <tr>
