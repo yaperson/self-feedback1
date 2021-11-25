@@ -1,4 +1,4 @@
-//Y'a tellement de bugs, on va commencer par allumer une seule étoile. Le reste, on verra.
+//Premièrement, on crée des arrays contenant les éléments. Puis on assigne les fonctions aux boutons de manière dynamique pour pas devoir changer la page Twig.
 
     var starRep = document.getElementsByName("rating_repas");
     var starEnv = document.getElementsByName("rating_env");
