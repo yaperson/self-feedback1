@@ -73,15 +73,9 @@
     }
     
     .table_title {
-        background-color: #2dabe169;
-    }
-    
-    .sticky {
-        position: fixed;
-        top: 0;
-        margin-top: 58px;
-        border: solid #424242 1px;
-        width: 100%;
+        background-color: #b8e6fa;
+        position: sticky;
+        top: 63px;
     }
     
     .table_star {
