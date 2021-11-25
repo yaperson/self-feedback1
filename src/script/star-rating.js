@@ -1,6 +1,4 @@
-//Quand on clique sur l'étoile, on execute un programme qui va passer chaque
-//étoile en sens inverse, voir laquelle est check, activer un flag qui va passer en "on"
-//toutes les étoiles inférieures, et on sera bon. Faudra juste mettre un onhover quand ça marchera.
+//Y'a tellement de bugs, on va commencer par allumer une seule étoile. Le reste, on verra.
 
     var starRep = document.getElementsByName("rating_repas");
     var starEnv = document.getElementsByName("rating_env");
@@ -8,24 +6,22 @@
     var starEnvLength = starEnv.length-1;
     for(i=0; i<starRep.length; i++) starRep[i].setAttribute("onclick","onRepClick()");
     for(i=0; i<starEnv.length; i++) starEnv[i].setAttribute("onclick","onEnvClick()");
-    var stars = document.getElementsByClassName("rating__star-off");
+    var stars = document.getElementsByTagName("polygon");
 function onRepClick() {
-    var i=j=-1;
-    
-            for(i=0;i<4;i++) stars[i].setAttribute("class","rating__star-off");
-            for(i=0; i<starRepLength; i++) {
-                if(starRep[i].checked) {
-                    console.log(i)
-                    for(j=0; j<i; j++) {
-                        stars[j].setAttribute("class","rating__star-on");
-                    }
-                    break;
-                }
-            }
+    for(j=0;j<5;j++) stars[j].setAttribute("class","rating__star-off"); //Passe tout en off
+    for(i=0;i<5;i++) {
+        if(starRep[i].checked) {
+            for(j=0;j<=i;j++)
+            stars[j].setAttribute("class","rating__star-on");
+        }
+    }
 }
 function onEnvClick() {
-
-}
-function aled() {
-    for(i=0; i>stars.length;i++) stars[i].setAttribute("class","rating__star-off");
+    for(j=5;j<10;j++) stars[j].setAttribute("class","rating__star-off"); //Passe tout en off
+    for(i=0;i<5;i++) {
+        if(starEnv[i].checked) {
+            for(j=5;j<=i+5;j++)
+            stars[j].setAttribute("class","rating__star-on");
+        }
+    }
 }
