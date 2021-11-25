@@ -34,6 +34,11 @@ class Classes
         $this->students = new ArrayCollection();
     }
 
+    public function __toString():string
+    {
+        return $this->classe_libelle;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -2,6 +2,8 @@ security:
     encoders:
         App\Entity\User:
             algorithm: auto
+
+
     
     # role_hierarchy:
     #     ROLE_ADMIN:       ROLE_USER
@@ -11,8 +13,10 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\Student
-                property: anonyme
+                class: App\Entity\User
+                property: email
+        # used to reload user from session & other features (e.g. switch_user)
+        # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
