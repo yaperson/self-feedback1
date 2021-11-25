@@ -74,6 +74,8 @@
     
     .table_title {
         background-color: #2dabe169;
+        position: sticky;
+        top: 63px;
     }
     
     .sticky {
