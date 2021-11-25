@@ -120,4 +120,7 @@ element.style {
   .foo-container {
     color: #b6b6fb;
   }
+  .topnav {
+    max-width: 100%;
+  }
 }
