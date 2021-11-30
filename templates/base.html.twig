@@ -33,7 +33,17 @@
             <img class="topnav__link img" src="/images/cropped-cropped-NDLP-3-min-e1544695116495.png">
             <span class="topnav__link">Notre Dame de la Providence</span>
           </div>
-          <a class="topnav__link" id="right" href="connect.php">| Login</a>
+          {% if is_granted('ROLE_USER') %}
+              <div class="nav-link disabled">
+                <i class="fas fa-user"></i>
+                {% if app.user %}
+                  <strong>{{ app.user.username }}</strong>
+                {% endif %}
+              </div>
+              <a class="topnav__link" id="right" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a>
+          {% else %}
+              <a class="topnav__link" id="right" href="{{ path('app_login') }}">{{'Sign in'|trans}}</a>
+          {% endif %}
         </nav>
     {# <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="http://localhost:8000">FeedBack Self</a>
