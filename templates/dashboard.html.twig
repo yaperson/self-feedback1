@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/cropped-cropped-NDLP-3-min-e1544695116495.png" type="image/x-icon">
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/dashboard.css">
     <title>dashboard</title>
@@ -52,7 +53,7 @@
                 <th>Date</th>
             </tr>
             <tr>
-            {% for notes in notes | reverse %}
+            {% for notes in notes | sort  %}
                <th class="table_id">{{ notes.note_Id  }} </th> <th>{{ notes.note_Valeur_Repas }}<img src="/images/star.svg" class="table_star"></th> <th>{{ notes.note_Valeur_Environnement }}<img src="/images/star.svg" class="table_star"></th> <th>{{ notes.note_Commentaire }}</th> <th>{{ notes.classe_Id }}</th><th>{{ notes.note_date }}</th></tr>
             {% endfor %}
             </tr>
