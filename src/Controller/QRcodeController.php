@@ -62,4 +62,10 @@ class QRcodeController extends AbstractController
 
 
     }
+    // public function scanToken(tokenRepository $userRepository): Response
+    // {
+    //     return $this->render('user/index.html.twig', [
+    //         'users' => $userRepository->findAll(),
+    //     ]);
+    // }
 }
