@@ -2,87 +2,48 @@
 
 namespace App\Entity;
 
-use App\Repository\ClassesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ClassesRepository::class)
+ * Classes
+ *
+ * @ORM\Table(name="classes")
+ * @ORM\Entity
  */
 class Classes
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="classe_Id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $classeId;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @var string
+     *
+     * @ORM\Column(name="classe_libelle", type="string", length=50, nullable=false)
      */
-    private $classe_libelle;
+    private $classeLibelle;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="classe")
-     */
-    private $students;
-
-    public function __construct()
+    public function getClasseId(): ?int
     {
-        $this->students = new ArrayCollection();
-    }
-
-    public function __toString():string
-    {
-        return $this->classe_libelle;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
+        return $this->classeId;
     }
 
     public function getClasseLibelle(): ?string
     {
-        return $this->classe_libelle;
+        return $this->classeLibelle;
     }
 
-    public function setClasseLibelle(string $classe_libelle): self
+    public function setClasseLibelle(string $classeLibelle): self
     {
-        $this->classe_libelle = $classe_libelle;
+        $this->classeLibelle = $classeLibelle;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Student[]
-     */
-    public function getStudents(): Collection
-    {
-        return $this->students;
-    }
 
-    public function addStudent(Student $student): self
-    {
-        if (!$this->students->contains($student)) {
-            $this->students[] = $student;
-            $student->setClasse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeStudent(Student $student): self
-    {
-        if ($this->students->removeElement($student)) {
-            // set the owning side to null (unless already changed)
-            if ($student->getClasse() === $this) {
-                $student->setClasse(null);
-            }
-        }
-
-        return $this;
-    }
 }
