@@ -20,14 +20,10 @@
     <!-- Bootstrap core JS    # MIS EN COMMENTAIRE CAR BUGUE, A REGLER # 
     <script src="js/bootstrap.js" > -->
 
- {% block stylesheets %}
- {% endblock %}
- {% block javascripts %}
- {% endblock %}
-
   </head>
 
   <body>
+        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
         <nav class="topnav" id="myTopnav">
           <div id="left">
             <img class="topnav__link img" src="/images/cropped-cropped-NDLP-3-min-e1544695116495.png">
