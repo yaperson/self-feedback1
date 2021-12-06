@@ -21,13 +21,11 @@ class ChartjsController extends AbstractController
  
         $labels = [];
         $data = [];
-        $labels2 = [];
         $data2 = [];
 
         foreach ($student as $Students) {
             $labels[] = $Students->getNoteDate()->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
-            $labels2[] = $Students->getNoteDate()->format('d/m/Y');
             $data2[] = $Students->getNoteValeurEnvironnement();
         }
  
