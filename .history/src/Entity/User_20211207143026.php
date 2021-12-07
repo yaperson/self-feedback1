@@ -22,7 +22,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $username;
+    private $email;
 
     /**
      * @ORM\Column(type="json")
@@ -45,14 +45,14 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getemail(): string
     {
-        return (string) $this->username;
+        return (string) $this->email;
     }
 
-    public function setUsername(string $username): self
+    public function setemail(string $email): self
     {
-        $this->username = $username;
+        $this->email = $email;
 
         return $this;
     }
@@ -79,7 +79,7 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getPassword(): ?string
+    public function getPassword(): string
     {
         return $this->password;
     }

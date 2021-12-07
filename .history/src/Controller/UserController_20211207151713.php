@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 /**
@@ -27,13 +26,6 @@ class UserController extends AbstractController
         ]);
     }
 
-    private $passwordEncoder;
-    
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
-    {
-        $this->passwordEncoder = $passwordEncoder;
-    }
-
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
@@ -45,16 +37,17 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-        
-            $plainPassword = $request->get('user')['plainPassword'];
-            $password = $this->passwordEncoder->encodePassword($user, $plainPassword);
-            $user->setPassword($password);
+            
+            dump($request);
+            $user = $request->get('user');
+            dump($user->getPlainPassword());
+            //  = $this->get('plainPassword');
+            // $plainPassword = 
 
             $entityManager->persist($user);
-            //dump($user);
-            $entityManager->flush();
-            
-            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            // $entityManager->flush();
+
+            // return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/new.html.twig', [

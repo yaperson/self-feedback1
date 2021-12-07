@@ -3,50 +3,50 @@
 namespace App\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Twig\Mime\Templatedusername;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use SymfonyCasts\Bundle\Verifyusername\Exception\VerifyusernameExceptionInterface;
-use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
+use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use SymfonyCasts\Bundle\VerifyEmail\VerifyemailHelperInterface;
 
 class EmailVerifier
 {
-    private $verifyusernameHelper;
+    private $verifyEmailHelper;
     private $mailer;
     private $entityManager;
 
     public function __construct(VerifyemailHelperInterface $helper, MailerInterface $mailer, EntityManagerInterface $manager)
     {
-        $this->verifyusernameHelper = $helper;
+        $this->verifyEmailHelper = $helper;
         $this->mailer = $mailer;
         $this->entityManager = $manager;
     }
 
-    public function sendusernameConfirmation(string $verifyusernameRouteName, UserInterface $user, Templatedusername $username): void
+    public function sendEmailConfirmation(string $verifyEmailRouteName, UserInterface $user, TemplatedEmail $email): void
     {
-        $signatureComponents = $this->verifyusernameHelper->generateSignature(
-            $verifyusernameRouteName,
+        $signatureComponents = $this->verifyEmailHelper->generateSignature(
+            $verifyEmailRouteName,
             $user->getId(),
-            $user->getusername()
+            $user->getEmail()
         );
 
-        $context = $username->getContext();
+        $context = $email->getContext();
         $context['signedUrl'] = $signatureComponents->getSignedUrl();
         $context['expiresAtMessageKey'] = $signatureComponents->getExpirationMessageKey();
         $context['expiresAtMessageData'] = $signatureComponents->getExpirationMessageData();
 
-        $username->context($context);
+        $email->context($context);
 
-        $this->mailer->send($username);
+        $this->mailer->send($email);
     }
 
     /**
-     * @throws VerifyusernameExceptionInterface
+     * @throws VerifyEmailExceptionInterface
      */
-    public function handleusernameConfirmation(Request $request, UserInterface $user): void
+    public function handleEmailConfirmation(Request $request, UserInterface $user): void
     {
-        $this->verifyusernameHelper->validateusernameConfirmation($request->getUri(), $user->getId(), $user->getusername());
+        $this->verifyEmailHelper->validateEmailConfirmation($request->getUri(), $user->getId(), $user->getEmail());
 
         $user->setIsVerified(true);
 
