@@ -43,7 +43,6 @@ class User implements UserInterface, UserPasswordEncoderInterface
      */
     private $isVerified = false;
 
-
     public function getId(): ?int
     {
         return $this->id;

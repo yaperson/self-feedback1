@@ -136,4 +136,6 @@ class User implements UserInterface, UserPasswordEncoderInterface
 
         return $this;
     }
+
+   
 }

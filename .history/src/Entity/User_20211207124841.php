@@ -37,12 +37,16 @@ class User implements UserInterface, UserPasswordEncoderInterface
      */
     private $password;
 
-    private UserPasswordEncoderInterface $passwordEncoder;
+    private $passwordEncoder;
     /**
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
 
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
 
     public function getId(): ?int
     {

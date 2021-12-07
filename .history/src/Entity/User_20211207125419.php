@@ -37,12 +37,11 @@ class User implements UserInterface, UserPasswordEncoderInterface
      */
     private $password;
 
-    private UserPasswordEncoderInterface $passwordEncoder;
+    public UserPasswordEncoderInterface $passwordEncoder;
     /**
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
-
 
     public function getId(): ?int
     {
@@ -135,5 +134,15 @@ class User implements UserInterface, UserPasswordEncoderInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function encodePassword(UserInterface $user, $plainPassword)
+    {
+        return $this->passwordEncoder->encodePassword($this->user, $password);
+    }
+
+    public function isPasswordValid(UserInterface $user, $raw)
+    {
+        return $this->passwordEncoder->isPasswordValid($this->user, $raw);
     }
 }
