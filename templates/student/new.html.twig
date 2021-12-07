@@ -1,143 +1,160 @@
-{% extends 'base.html.twig' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+{# {% extends 'base.html.twig' %} #}
 
-{% block title %}New Student{% endblock %}
+{# {% block title %}New Student{% endblock %} #}
 
  {% block stylesheets %}
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/feedback.css">
  {% endblock %}
 
+
+
 {% block body %}
-    <h1>Create new Student</h1>
+    {# <h1>Create new Student</h1>
 
     {{ include('student/_form.html.twig') }}
 
-    <a href="{{ path('student_index') }}">back to list</a>
+    <a href="{{ path('student_index') }}">back to list</a> #}
 
+        <nav class="topnav" id="myTopnav">
+          <span class="topnav__link">FEEDBACK SELF</span>
+        </nav>
     <form method="POST" >
-        <h1 class="login_title"> Donnez votre avis ! </h1>
-        <label for="rating_repas">Note repas :</label><br><br>
-        <label>
-            <input class="radio_inputs" value="1" type="radio" name="rating_repas" >
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-            <input class="radio_inputs" value="2" type="radio" name="rating_repas" >
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-            <input class="radio_inputs" value="3" type="radio" name="rating_repas" >
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-            <input class="radio_inputs" value="4" type="radio" name="rating_repas" >
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-            <input class="radio_inputs" value="5" type="radio" name="rating_repas" >
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <br>
-        <br>
-        <br>
-        <label for="rating_env">Note Environnement :</label> <br><br>
-        <label>
-            <input class="radio_inputs" value="1" type="radio" name="rating_env">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-        <input class="radio_inputs" value="2" type="radio" name="rating_env">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>            
-        <input class="radio_inputs" value="3" type="radio" name="rating_env">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-            <input class="radio_inputs" value="4" type="radio" name="rating_env">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <label>
-            <input class="radio_inputs" value="5" type="radio" name="rating_env">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
-            <g>
-                <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
-                    0,11.459 10.898,9.876 15.771,0 	"/>
-            </g>
-            </svg>
-        </label>  
-        <br>
-        <br>
-        <br>
-        <label for="comment">Commentaire :</label>
-        <textarea rows="10" cols="40" name="comment"></textarea>
-        <label for="classe">Votre classe :</label>
-        {# <select name="classe">
-            <option value="">--Please choose an option--</option>
-            {% for classes in classes %}
-           <option value='{{ classes.classe_Id  }}'>{{ classes.classe_Id  }} - {{ classes.classe_libelle }}</option>
-             {% endfor %}
-        </select><br><br> #}
-        
-        <input class="login_inputs" id="btn5" type="submit">
+        <div class="form_container">
+            <h1 class="login_title"> Donnez votre avis ! </h1>
+            <label for="rating_repas">Note repas :</label><br><br>
+            <div class="login_star">
+            <label>
+                <input class="radio_inputs" value="1" type="radio" name="rating_repas" >
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+                <input class="radio_inputs" value="2" type="radio" name="rating_repas" >
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+                <input class="radio_inputs" value="3" type="radio" name="rating_repas" >
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+                <input class="radio_inputs" value="4" type="radio" name="rating_repas" >
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+                <input class="radio_inputs" value="5" type="radio" name="rating_repas" >
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <br>
+            <br>
+            <br>
+            </div>
+            <label for="rating_env">Note Environnement :</label> <br><br>
+            <div class="login_star">
+            <label>
+                <input class="radio_inputs" value="1" type="radio" name="rating_env">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+            <input class="radio_inputs" value="2" type="radio" name="rating_env">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>            
+            <input class="radio_inputs" value="3" type="radio" name="rating_env">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+                <input class="radio_inputs" value="4" type="radio" name="rating_env">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            <label>
+                <input class="radio_inputs" value="5" type="radio" name="rating_env">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
+                <g>
+                    <polygon class="rating__star-off" fill="#2DAAE1" points="20.646,9.875 31.543,11.458 23.656,19.145 25.518,29.996 15.771,24.873 6.024,30 7.886,19.145 
+                        0,11.459 10.898,9.876 15.771,0 	"/>
+                </g>
+                </svg>
+            </label>  
+            </div>
+            <br>
+            <br>
+            <br>
+            <label for="comment">Commentaire :</label>
+            <textarea rows="10" cols="40" name="comment"></textarea>
+            {# <label for="classe">Votre classe :</label>
+            <select name="classe">
+                <option value="">--Please choose an option--</option>
+                {% for classes in classes %}
+            <option value='{{ classes.classe_Id  }}'>{{ classes.classe_Id  }} - {{ classes.classe_libelle }}</option>
+                {% endfor %}
+            </select><br><br> #}
+            
+            <input class="login_inputs" id="btn5" type="submit">
+        </div>
     </form>   
 {% block javascripts %}
-    <script src="script/star-rating.js"></script>
+    <script src="../js/star-rating.js"></script>
 {% endblock %}
-
 {% endblock %}
