@@ -20,7 +20,7 @@ class ClassesController extends AbstractController
      */
     public function index(ClassesRepository $classesRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        //$this->denyAccessUnlessGranted('ROLE_USER');
 
         return $this->render('classes/index.html.twig', [
             'classes' => $classesRepository->findAll(),
