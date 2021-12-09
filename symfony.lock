@@ -594,6 +594,9 @@
     "symfonycasts/verify-email-bundle": {
         "version": "v1.6.0"
     },
+    "tecnick.com/tcpdf": {
+        "version": "6.4.2"
+    },
     "theseer/tokenizer": {
         "version": "1.2.1"
     },
