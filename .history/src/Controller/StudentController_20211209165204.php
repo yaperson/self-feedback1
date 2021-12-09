@@ -40,10 +40,11 @@ class StudentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($student);
             
-            dump($request);
             
-            $entityManager->flush();
-            return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
+            
+            //$entityManager->flush();
+
+            //return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('student/new.html.twig', [

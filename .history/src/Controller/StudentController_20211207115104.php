@@ -34,15 +34,11 @@ class StudentController extends AbstractController
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
 
-        dump($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($student);
-            
-            dump($request);
-            
             $entityManager->flush();
+
             return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
         }
 

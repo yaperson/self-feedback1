@@ -40,7 +40,7 @@ class StudentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($student);
             
-            dump($request);
+            dump($student);
             
             $entityManager->flush();
             return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);

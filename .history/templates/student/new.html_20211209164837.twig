@@ -1,11 +1,11 @@
 {% extends 'base-student.html.twig' %} 
 
 {% block title %}New Student{% endblock %}
-{# 
+
  {% block stylesheets %}
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/feedback.css">
- {% endblock %} #}
+ {% endblock %}
 
 
 
@@ -25,7 +25,7 @@
             <label for="rating_repas">Note repas :</label><br><br>
             <div class="login_star">
             <label>
-                <input class="radio_inputs" value="1" type="radio" name="note_repas" >
+                <input class="radio_inputs" value="1" type="radio" name="rating_repas" >
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -35,7 +35,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="2" type="radio" name="note_repas" >
+                <input class="radio_inputs" value="2" type="radio" name="rating_repas" >
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -45,7 +45,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="3" type="radio" name="note_repas" >
+                <input class="radio_inputs" value="3" type="radio" name="rating_repas" >
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -55,7 +55,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="4" type="radio" name="note_repas" >
+                <input class="radio_inputs" value="4" type="radio" name="rating_repas" >
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -65,7 +65,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="5" type="radio" name="note_repas" >
+                <input class="radio_inputs" value="5" type="radio" name="rating_repas" >
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -81,7 +81,7 @@
             <label for="rating_env">Note Environnement :</label> <br><br>
             <div class="login_star">
             <label>
-                <input class="radio_inputs" value="1" type="radio" name="note_valeur_environnement">
+                <input class="radio_inputs" value="1" type="radio" name="rating_env">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -91,7 +91,7 @@
                 </svg>
             </label>  
             <label>
-            <input class="radio_inputs" value="2" type="radio" name="note_valeur_environnement">
+            <input class="radio_inputs" value="2" type="radio" name="rating_env">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -101,7 +101,7 @@
                 </svg>
             </label>  
             <label>            
-            <input class="radio_inputs" value="3" type="radio" name="note_valeur_environnement">
+            <input class="radio_inputs" value="3" type="radio" name="rating_env">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -111,7 +111,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="4" type="radio" name="note_valeur_environnement">
+                <input class="radio_inputs" value="4" type="radio" name="rating_env">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -121,7 +121,7 @@
                 </svg>
             </label>  
             <label>
-                <input class="radio_inputs" value="5" type="radio" name="note_valeur_environnement">
+                <input class="radio_inputs" value="5" type="radio" name="rating_env">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="31.543px" height="30px" viewBox="0 0 31.543 30" enable-background="new 0 0 31.543 30" xml:space="preserve">
                 <g>
@@ -134,8 +134,8 @@
             <br>
             <br>
             <br>
-            <label for="note_commentaire">Commentaire :</label>
-            <textarea rows="10" cols="40" name="note_commentaire"></textarea>
+            <label for="comment">Commentaire :</label>
+            <textarea rows="10" cols="40" name="comment"></textarea>
             {# <label for="classe">Votre classe :</label>
             <select name="classe">
                 <option value="">--Please choose an option--</option>

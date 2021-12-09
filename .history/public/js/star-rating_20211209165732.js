@@ -1,7 +1,7 @@
 //Premièrement, on crée des arrays contenant les éléments. Puis on assigne les fonctions aux boutons de manière dynamique pour pas devoir changer la page Twig.
 
 var starRep = document.getElementsByName("note_repas");
-var starEnv = document.getElementsByName("note_valeur_environnement");
+var starEnv = document.getElementsByName("rating_env");
 var starRepLength = starRep.length-1;
 var starEnvLength = starEnv.length-1;
 for(i=0; i<starRep.length; i++) starRep[i].setAttribute("onclick","onRepClick()");

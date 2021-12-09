@@ -35,7 +35,7 @@ class Student
     /**
      * @ORM\Column(type="date")
      */
-    private $note_date;
+    private $note_date=date("d/m/Y");
 
     /**
      * @ORM\ManyToOne(targetEntity=Classes::class, inversedBy="students")
@@ -90,7 +90,6 @@ class Student
 
     public function setNoteDate(\DateTimeInterface $note_date): self
     {
-        $note_date=date("d/m/Y");
         $this->note_date = $note_date;
 
         return $this;

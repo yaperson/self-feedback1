@@ -90,7 +90,7 @@ class Student
 
     public function setNoteDate(\DateTimeInterface $note_date): self
     {
-        $note_date=date("d/m/Y");
+        $note_date=date("d/m/Y")
         $this->note_date = $note_date;
 
         return $this;
