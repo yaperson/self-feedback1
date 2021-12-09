@@ -40,7 +40,7 @@ try {
         $newuser = new FeedbackManager($db);
         $newuser->addNote($_POST['rating_repas'], $_POST['rating_env'], $_POST['comment'], $_POST['classe']);
         //header('Location: connect.php');
-        // print("note enregistré ".$_POST['rating_repas']." ".$_POST['rating_env']." ".$_POST['comment']." ".$_POST['classe']);
+         print("note enregistré ".$_POST['rating_repas']." ".$_POST['rating_env']." ".$_POST['comment']." ".$_POST['classe']);
     }
 } catch(PDOException $e) {
     print('erreur de connection : ' . $e->getMessage());

@@ -77,7 +77,7 @@ class __TwigTemplate_27aaf8bc25196ab30ffc58d3a5509a7f83797ddc8bd071368e4a7750a94
                 </svg>
             </label>  
             <label>
-                <input class=\"radio_inputs\" value=\"2\" type=\"radio\" name=\"rating_repas\" >
+                <input class=\"radio_inputs\" value=\"2\" type=\"radio\" name=\"rating_repas\">
                 <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"
                     width=\"31.543px\" height=\"30px\" viewBox=\"0 0 31.543 30\" enable-background=\"new 0 0 31.543 30\" xml:space=\"preserve\">
                 <g>
@@ -200,7 +200,7 @@ class __TwigTemplate_27aaf8bc25196ab30ffc58d3a5509a7f83797ddc8bd071368e4a7750a94
         echo "            </select><br><br>
             
             <input class=\"login_inputs\" id=\"btn5\" type=\"submit\">
-        </form>   
+        </form>
     </main>
 ";
         // line 145
