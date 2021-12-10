@@ -32,7 +32,7 @@ class ClassesController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN');
         
         $class = new Classes();
         $form = $this->createForm(ClassesType::class, $class);
