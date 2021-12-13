@@ -5,6 +5,8 @@
 
 h1{
     font-size: 5rem;
+    transition: 0.2s;
+    animation: fromTop 2s ;
 }
 
 /***************/
@@ -53,5 +55,17 @@ h1{
     }
     #btn5{
         width: 200px;
+    }
+}
+
+@keyframes fromTop {
+    0% {
+        color: rgba(0, 0, 0, 0);
+        transition: 0.2s;
+        margin-top: 20px;
+    }
+    100% {
+        color: rgb(0, 0, 0);
+        /* transition: 0.2s; */
     }
 }
