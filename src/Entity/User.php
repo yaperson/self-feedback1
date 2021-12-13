@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User implements UserInterface
+class User  implements UserInterface 
 {
     /**
      * @ORM\Id
@@ -45,12 +45,12 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getusername(): string
     {
         return (string) $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setusername(string $username): self
     {
         $this->username = $username;
 
