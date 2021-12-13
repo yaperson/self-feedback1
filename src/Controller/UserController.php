@@ -22,7 +22,7 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
@@ -41,7 +41,7 @@ class UserController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_SUPERADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
         $user = new User();
         $form = $this->createForm(UserType::class, $user);

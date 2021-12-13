@@ -20,7 +20,7 @@ class ClassesController extends AbstractController
      */
     public function index(ClassesRepository $classesRepository): Response
     {
-        //$this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
         return $this->render('classes/index.html.twig', [
             'classes' => $classesRepository->findAll(),
@@ -32,7 +32,7 @@ class ClassesController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_USER');
         
         $class = new Classes();
         $form = $this->createForm(ClassesType::class, $class);
