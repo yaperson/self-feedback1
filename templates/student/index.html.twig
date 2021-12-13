@@ -8,6 +8,7 @@
  {% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 
         <nav class="leftNav" id="myTopnav">
             <div class="leftnav__date">
@@ -22,6 +23,41 @@
                 <a class="topnav__link" href="{{ path('user_index') }}">| Gestion des utilisateurs</a>
             </div>
         </nav>
+=======
+    <h1>Student index</h1>
+    {{ render_chart(chart, {'id': 'my-chart'})}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NoteRepas</th>
+                <th>Note_Valeur_Environnement</th>
+                <th>Note_Commentaire</th>
+                <th>Note_date</th>
+                {# <th>actions</th> #}
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.noteRepas }}</td>
+                <td>{{ student.noteValeurEnvironnement }}</td>
+                <td>{{ student.noteCommentaire }}</td>
+                <td>{{ student.noteDate ? student.noteDate|date('Y-m-d') : '' }}</td>
+                {# <td>
+                    <a href="{{ path('student_show', {'id': student.id}) }}">show</a>
+                    <a href="{{ path('student_edit', {'id': student.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+>>>>>>> origin/LAB_CHART_WORKING
 
     <div class="bloc_dashboard">
         <div class="btn_container">
