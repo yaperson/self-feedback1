@@ -40,14 +40,17 @@ h1{
     main{
         max-width: 100%;
     }
-    .main__title{
-        max-width: 320px;
-        font-size: 50px;
+    h1 {
+        font-size: 60px;
+        margin: auto;
     }
     h3{
         font-size: 50px;
     }
     #target{
         font-size: 50px;
+    }
+    #btn5{
+        width: 200px;
     }
 }

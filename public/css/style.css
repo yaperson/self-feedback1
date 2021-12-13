@@ -124,8 +124,10 @@ element.style {
 @media (max-width: 750px) {
   .foo-container {
     color: #b6b6fb;
+    position: relative;
   }
   .topnav {
     max-width: 100%;
   }
+
 }
