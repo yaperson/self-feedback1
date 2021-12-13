@@ -8,6 +8,17 @@
  {% endblock %}
 
 {% block body %}
+
+        <nav class="leftNav" id="myTopnav">
+            <span class="leftnav__separateBar"></span>
+            <div class="leftnav__param">
+                <a class="topnav__link" href="{{ path('student_index') }}">| Rapports <img src="../images/report.png" width="20px"></a>
+                <a class="topnav__link" href="#">| Gestion des classes <img src="../images/classe.png" width="20px"></a>
+                <a class="topnav__link" href="{{ path('user_index') }}">| Gestion des utilisateurs <img src="../images/user.png" width="20px"></a>
+                <a class="topnav__link" href="{{ path('qrcode_generate') }}">| générer le QR-code <img src="../images/qrcode.png" width="20px"></a>
+            </div>
+        </nav>
+<div class="bloc_dashboard">
     <h1>User index</h1>
 
     <table class="table">
@@ -39,10 +50,11 @@
     </table>
 
     <a href="{{ path('user_new') }}">Create new</a>
-
-        <div class="bottom__param">
+</div>
+    <div class="bottom__param">
        <a class="topnav__link" href="#"><img src="../images/report.png" width="20px"></a>
        <a class="topnav__link" href="{{ path('classes_index') }}" ><img src="../images/classe.png" width="20px"></a>
        <a class="topnav__link" href="{{ path('user_index') }}"><img src="../images/user.png" width="20px"></a>
+       <a class="topnav__link" href="{{ path('qrcode_generate') }}"><img src="../images/qrcode.png" width="20px"></a>
     </div>
 {% endblock %}
