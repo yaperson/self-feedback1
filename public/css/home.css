@@ -3,7 +3,7 @@
     justify-content: center;
 }
 
-h1{
+.title{
     font-size: 5rem;
     transition: 0.2s;
     animation: fromTop 2s ;
