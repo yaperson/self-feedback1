@@ -7,6 +7,7 @@ use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\Color\Color;
 use Endroid\QrCode\Label\Label;
 use Endroid\QrCode\Builder\Builder;
+use App\Repository\QrcodeRepository;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\Label\Font\NotoSans;
@@ -27,15 +28,18 @@ class QRcodeController extends AbstractController
     /**
      * @Route("/", name="qrcode_generate")
      */
-    public function index(): Response
+    public function index(QrcodeRepository $qrcodeRepository): Response
     {
-        //TO DO Genérer Token
+        $token = $qrcodeRepository->getTokenToday();
+
+        dump($token);
+
         $logoPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'ndlp.png';
 
         $writer = new PngWriter();
 
         // Create QR code
-        $qrCode = QrCode::create('http://localhost:8000/student/new')
+        $qrCode = QrCode::create('http://localhost:8000/student/new?token='.$token)
             ->setEncoding(new Encoding('UTF-8'))
             ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
             ->setSize(500)

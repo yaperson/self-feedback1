@@ -19,32 +19,44 @@ class QrcodeRepository extends ServiceEntityRepository
         parent::__construct($registry, Qrcode::class);
     }
 
+    public function getTokenToday(): ?string
+    {
+
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'SELECT token FROM qrcode WHERE qrcode.date = DATE(NOW());';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchOne();
+        dump($result);
+        return $result;
+    }
+
     // /**
     //  * @return Qrcode[] Returns an array of Qrcode objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('q.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    return $this->createQueryBuilder('q')
+    ->andWhere('q.exampleField = :val')
+    ->setParameter('val', $value)
+    ->orderBy('q.id', 'ASC')
+    ->setMaxResults(10)
+    ->getQuery()
+    ->getResult()
+    ;
     }
-    */
+     */
 
     /*
     public function findOneBySomeField($value): ?Qrcode
     {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+    return $this->createQueryBuilder('q')
+    ->andWhere('q.exampleField = :val')
+    ->setParameter('val', $value)
+    ->getQuery()
+    ->getOneOrNullResult()
+    ;
     }
     */
 }

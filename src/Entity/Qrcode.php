@@ -55,4 +55,5 @@ class Qrcode
 
         return $this;
     }
+
 }
