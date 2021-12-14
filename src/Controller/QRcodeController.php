@@ -30,40 +30,48 @@ class QRcodeController extends AbstractController
      */
     public function index(QrcodeRepository $qrcodeRepository): Response
     {
+        //TO DO IF token existe -> inserer dans le lien
+        //ELSE créer token 
         $token = $qrcodeRepository->getTokenToday();
+        if ($token == "")
+        {
+            $logoPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'ndlp.png';
 
-        dump($token);
+            $writer = new PngWriter();
+    
+            // Create QR code
+            $qrCode = QrCode::create('http://localhost:8000/student/new?token='.$token)
+                ->setEncoding(new Encoding('UTF-8'))
+                ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+                ->setSize(500)
+                ->setMargin(10)
+                ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+                ->setForegroundColor(new Color(0, 0, 0))
+                ->setBackgroundColor(new Color(255, 255, 255));
+                    
+            // Create generic logo
+            $logo = Logo::create($logoPath)
+                ->setResizeToWidth(50);
+            
+            // Create generic label
+            $label = Label::create('Scannez pour accéder au questionnaire !')
+                ->setTextColor(new Color(92, 119, 209));
+            
+            $result = $writer->write($qrCode, $logo, $label);     
+    
+            $dataUri = $result->getDataUri();
+    
+            return $this->render('qrcode/index.html.twig', [
+                'data_url' => $dataUri,
+                'title' => "QR code",
+            ]); 
+        }
+        else 
+        {
+            
+        }
 
-        $logoPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'ndlp.png';
 
-        $writer = new PngWriter();
-
-        // Create QR code
-        $qrCode = QrCode::create('http://localhost:8000/student/new?token='.$token)
-            ->setEncoding(new Encoding('UTF-8'))
-            ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
-            ->setSize(500)
-            ->setMargin(10)
-            ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
-            ->setForegroundColor(new Color(0, 0, 0))
-            ->setBackgroundColor(new Color(255, 255, 255));
-                
-        // Create generic logo
-        $logo = Logo::create($logoPath)
-            ->setResizeToWidth(50);
-        
-        // Create generic label
-        $label = Label::create('Scannez pour accéder au questionnaire !')
-            ->setTextColor(new Color(92, 119, 209));
-        
-        $result = $writer->write($qrCode, $logo, $label);     
-
-        $dataUri = $result->getDataUri();
-
-        return $this->render('qrcode/index.html.twig', [
-            'data_url' => $dataUri,
-            'title' => "QR code",
-        ]);
 
 
     }
