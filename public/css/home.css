@@ -24,7 +24,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    color: rgb(255, 255, 255);
+    color: var(--btn-color);
     mix-blend-mode: normal;
     cursor: pointer;
     outline: none;
