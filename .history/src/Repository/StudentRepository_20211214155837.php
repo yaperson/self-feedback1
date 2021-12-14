@@ -39,6 +39,9 @@ class StudentRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
 
         return $query->execute();
+
+        // to get just one result:
+        // $product = $query->setMaxResults(1)->getOneOrNullResult();
     }
     
 

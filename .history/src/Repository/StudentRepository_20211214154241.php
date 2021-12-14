@@ -23,22 +23,16 @@ class StudentRepository extends ServiceEntityRepository
     //  * @return Student[] Returns an array of Student objects
     //  */
     
-    public function findAllGreaterThanNote(int $note_repas, bool $includeUnavailableProducts = false): array
+    public function findByExampleField($value)
     {
-        // automatically knows to select Products
-        // the "p" is an alias you'll use in the rest of the query
-        $qb = $this->createQueryBuilder('r')
-            ->where('r.note_repas > :note_repas')
-            ->setParameter('note_repas', $note_repas)
-            ->orderBy('r.note_repas', 'ASC');
-
-        if (!$includeUnavailableProducts) {
-            $qb->andWhere('r.available = TRUE');
-        }
-
-        $query = $qb->getQuery();
-
-        return $query->execute();
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('s.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
     }
     
 
