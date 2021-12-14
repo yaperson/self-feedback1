@@ -1,2 +1,8 @@
 /vendor/
+<<<<<<< HEAD
  /node_modules/
+=======
+/src/conf.php
+/log
+/
+>>>>>>> 4c4b7f750de4312dea13e979dc071afc3fca4642

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/cropped-cropped-NDLP-3-min-e1544695116495.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/qrcode.css">
+    <title>QR code</title>
+</head>
+<body>
+    {% if error != '' %}
+        <div class="error">{{error}}</div>    
+    {% endif %}
+    <header>
+        <nav class="topnav" id="myTopnav">
+          <div id="left">
+            <img class="topnav__link img" src="/images/cropped-cropped-NDLP-3-min-e1544695116495.png">
+            <span class="topnav__link">Notre Dame de la Providence</span>
+          </div>
+        </nav>
+    </header>
+    <main>
+    <div class="Qr_container">
+    <h1>{{ title }}</h1> 
+        <p>{{text}}</p>
+        <img src={{ qrcode }} alt="" class="Qr_code">
+    </main>
+    </div>
+</body>
+</html>
