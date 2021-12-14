@@ -3,61 +3,67 @@
 {% block title %}Student index{% endblock %}
 
 {% block body %}
+    <h1>Student index</h1>
 
-{% apply inline_css %}
+    <style>
+        table
+        {
+            border-collapse: collapse;
+        }
 
-    {% block javascript %}
+        th, td
+        {
+            border: 1px solid black;
+            padding: 10px 20px;
+        }
+    </style>
 
-            <script>
-                const compare = function(ids, asc)
+    <script>
+        const compare = function(ids, asc)
+        {
+            return function(row1, row2)
+            {
+                const tdValue = function(row, ids)
                 {
-                    return function(row1, row2)
-                    {
-                        const tdValue = function(row, ids)
-                        {
-                            return row.children[ids].textContent;
-                        }
-
-                        const tri = function(v1, v2)
-                        {
-                            if (v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2))
-                            {
-                                return v1 - v2;
-                            }
-
-                            else
-                            {
-                                return v1.toString().localeCompare(v2);
-                            }
-
-                            return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
-                        };
-
-                        return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
-                    }
+                    return row.children[ids].textContent;
                 }
 
-                const tbody = document.querySelector('tbody');
-                const thx = document.querySelectorAll('th');
-                const trxb = tbody.querySelectorAll('tr');
-
-                thx.forEach(function(th)
+                const tri = function(v1, v2)
                 {
-                    th.addEventListener('click', function()
+                    if (v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2))
                     {
-                        let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
+                        return v1 - v2;
+                    }
 
-                        classe.forEach(function(tr)
-                        {
-                            tbody.appendChild(tr)
-                        });
-                    })
+                    else
+                    {
+                        return v1.toString().localeCompare(v2);
+                    }
+
+                    return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
+                };
+
+                return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
+            }
+        }
+
+        const tbody = document.querySelector('tbody');
+        const thx = document.querySelectorAll('th');
+        const trxb = tbody.querySelectorAll('tr');
+
+        thx.forEach(function(th)
+        {
+            th.addEventListener('click', function()
+            {
+                let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
+
+                classe.forEach(function(tr)
+                {
+                    tbody.appendChild(tr)
                 });
-            </script>
-
-    {% endblock %}
-
-    <h1>Student index</h1>
+            })
+        });
+    </script>
 
     <table class="table">
         <thead>
@@ -86,8 +92,41 @@
         </tbody>
     </table>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Age</th>
+                <th>Abonné</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>Pierre</td>
+                <td>29</td>
+                <td>oui</td>
+            </tr>
+
+            <tr>
+                <td>Mathilde</td>
+                <td>027</td>
+                <td>false</td>
+            </tr>
+
+            <tr>
+                <td>3Ric</td>
+                <td></td>
+                <td>??</td>
+            </tr>
+
+            <tr>
+                <td>Florian</td>
+                <td>trente</td>
+                <td>01</td>
+            </tr>
+        </tbody>
+    </table>
+
     <a href="{{ path('student_new') }}">Create new</a>
-
-{% endapply %}
-
 {% endblock %}

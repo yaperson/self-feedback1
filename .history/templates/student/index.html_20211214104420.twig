@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student index{% endblock %}
+
+{% block body %}
+    <h1>Student index</h1>
+
+    <script>
+        const compare = function(ids, asc)
+        {
+            return function(row1, row2)
+            {
+                const tdValue = function(row, ids)
+                {
+                    return row.children[ids].textContent;
+                }
+
+                const tri = function(v1, v2)
+                {
+                    if (v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2))
+                    {
+                        return v1 - v2;
+                    }
+
+                    else
+                    {
+                        return v1.toString().localeCompare(v2);
+                    }
+
+                    return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
+                };
+
+                return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
+            }
+        }
+
+        const tbody = document.querySelector('tbody');
+        const thx = document.querySelectorAll('th');
+        const trxb = tbody.querySelectorAll('tr');
+
+        thx.forEach(function(th)
+        {
+            th.addEventListener('click', function()
+            {
+                let classe = Array.from(trxb).sort(compare(Array.from(thx).indexOf(th), this.asc = !this.asc));
+
+                classe.forEach(function(tr)
+                {
+                    tbody.appendChild(tr)
+                });
+            })
+        });
+    </script>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="background-color:#FF0000; border-top-left-radius: 10px; -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; -khtml-border-top-left-radius: 10px; -icab-border-top-left-radius: 10px; -o-border-top-left-radius: 10px; border-top-right-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; -khtml-border-top-right-radius: 10px; -icab-border-top-right-radius: 10px; -o-border-top-right-radius: 10px;">ID</th>
+                <th style="background-color:#78C850; border-top-left-radius: 10px; -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; -khtml-border-top-left-radius: 10px; -icab-border-top-left-radius: 10px; -o-border-top-left-radius: 10px; border-top-right-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; -khtml-border-top-right-radius: 10px; -icab-border-top-right-radius: 10px; -o-border-top-right-radius: 10px;">Note du Repas</th>
+                <th style="background-color:#6890F0; border-top-left-radius: 10px; -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; -khtml-border-top-left-radius: 10px; -icab-border-top-left-radius: 10px; -o-border-top-left-radius: 10px; border-top-right-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; -khtml-border-top-right-radius: 10px; -icab-border-top-right-radius: 10px; -o-border-top-right-radius: 10px;">Note de l'Environnement</th>
+                <th style="background-color:#F85888; border-top-left-radius: 10px; -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; -khtml-border-top-left-radius: 10px; -icab-border-top-left-radius: 10px; -o-border-top-left-radius: 10px; border-top-right-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; -khtml-border-top-right-radius: 10px; -icab-border-top-right-radius: 10px; -o-border-top-right-radius: 10px;">Commentaire</th>
+                <th style="background-color:#F08030; border-top-left-radius: 10px; -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; -khtml-border-top-left-radius: 10px; -icab-border-top-left-radius: 10px; -o-border-top-left-radius: 10px; border-top-right-radius: 10px; -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; -khtml-border-top-right-radius: 10px; -icab-border-top-right-radius: 10px; -o-border-top-right-radius: 10px;">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.noteRepas }}</td>
+                <td>{{ student.noteValeurEnvironnement }}</td>
+                <td>{{ student.noteCommentaire }}</td>
+                <td>{{ student.noteDate ? student.noteDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('student_new') }}">Create new</a>
+{% endblock %}
