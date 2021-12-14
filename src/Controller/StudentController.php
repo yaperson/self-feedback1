@@ -73,13 +73,13 @@ class StudentController extends AbstractController
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
 
-        dump($request);
+        //dump($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($student);
             
-            dump($request);
+            //dump($request);
             
             $entityManager->flush();
             return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
@@ -106,6 +106,9 @@ class StudentController extends AbstractController
      */
     public function edit(Request $request, Student $student): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
 
@@ -126,6 +129,9 @@ class StudentController extends AbstractController
      */
     public function delete(Request $request, Student $student): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
         if ($this->isCsrfTokenValid('delete'.$student->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($student);
