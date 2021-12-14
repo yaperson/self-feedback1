@@ -2,15 +2,16 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\Student;
 use App\Form\StudentType;
+use Symfony\UX\Chartjs\Model\Chart;
 use App\Repository\StudentRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
-use Symfony\UX\Chartjs\Model\Chart;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
  * @Route("/student")
  */
@@ -79,11 +80,14 @@ class StudentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($student);
             
-            //dump($request);
-            
+            dump($request); 
+            // $CurrentDate=$request->get('student')['note_date'];
+            //$CurrentDate=date("d/m/Y");
+            $student->setNoteDate(new DateTime());
+
             $entityManager->flush();
-            return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
-        }
+            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+}
 
         return $this->render('student/new.html.twig', [
             'student' => $student,
