@@ -29,12 +29,13 @@ class QRcodeController extends AbstractController
      */
     public function index(): Response
     {
+        //TO DO Genérer Token
         $logoPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'ndlp.png';
 
         $writer = new PngWriter();
 
         // Create QR code
-        $qrCode = QrCode::create('https://github.com/ndlaprovidence/self-feedback1/projects/1')
+        $qrCode = QrCode::create('http://localhost:8000/student/new')
             ->setEncoding(new Encoding('UTF-8'))
             ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
             ->setSize(500)
