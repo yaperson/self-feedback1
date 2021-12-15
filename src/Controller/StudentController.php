@@ -29,7 +29,7 @@ class StudentController extends AbstractController
         $data2 = [];
 
         foreach ($student as $Students) {
-            $labels[] = $Students->getNoteDate()->format('d/m/Y');
+            $labels[] = $Students->getNoteDate() ; //->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
             $data2[] = $Students->getNoteValeurEnvironnement();
         }
