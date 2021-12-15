@@ -1,5 +1,10 @@
+:root {
+  --W-color: white;
+  --bg-color: white;
+  --btn-color: white;
+}
+
 html{
-    width: 100%;
     width: 100%;
     height: 100%;
 }
@@ -26,7 +31,7 @@ main {
 /***********************************************/
 .topnav {
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--bg-color);
   box-shadow: 0 3px 6px 0 rgb(175, 175, 175);
   user-select: none;
   z-index: 2;
@@ -36,6 +41,7 @@ main {
   position: fixed;
   width: 100%;
 }
+
 .topnav .topnav__link {
   float: left;
   color: #181818;
@@ -44,43 +50,48 @@ main {
   font-size: 19px;
   transition: 0.2s;
 }
+
 #left {
   display: flex;
   align-items: center;
 }
+
 #right {
   float: right;
   /* margin-left: 75%; */
   padding-right: 2%;
 }
+
 .img {
   width: 35px;
   height: 32px;
   left: 11px;
   top: 7px;
 }
+
 .topnav .topnav__link:hover {
   color: #060c18;
   transition: 0.2s;
 }
   /*****/
-  .foo-container {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    width: 100%;
-    /* height: 164px; */
-    color: white;
-    background: #424242;
-  }
-  .bloc {
-    display: flex;
-    justify-content: space-around;
-    margin: 10px;
-    width: 50%;
-  }
+.foo-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  /* height: 164px; */
+  color: var(--W-color);
+  background: #424242;
+}
+
+.bloc {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  width: 50%;
+}
 
 /***********************************************/
 
@@ -93,7 +104,7 @@ main {
   height: 50px;
   background-color: red;
   animation: kboom infinite 1s;
-  color: white;
+  color: var(--W-color);
 }
 
 @keyframes kboom {
@@ -105,12 +116,6 @@ main {
   }
 }
 
-
-
-element.style {
-  background-image: url(assets/img/image1.jpg);
-  height: 100vh;
-}
 .bg-image {
   display: flex;
   justify-content: center;
@@ -125,8 +130,10 @@ element.style {
 @media (max-width: 750px) {
   .foo-container {
     color: #b6b6fb;
+    position: relative;
   }
   .topnav {
     max-width: 100%;
   }
+
 }

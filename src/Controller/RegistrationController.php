@@ -75,7 +75,7 @@ class RegistrationController extends AbstractController
      */
     public function verifyUserusername(Request $request): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         // validate username confirmation link, sets User::isVerified=true and persists
         try {
