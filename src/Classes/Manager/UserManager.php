@@ -68,7 +68,7 @@ class UserManager
     {
         $userList = array();
 
-        $request = $this->_db->query('SELECT id, email FROM users;');
+        $request = $this->_db->query('SELECT "user_Id", "user_Name" FROM users;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
             $user = new User($ligne);
             $userList[] = $user;
