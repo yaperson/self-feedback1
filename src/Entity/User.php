@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User  implements UserInterface 
+class User implements UserInterface
 {
     /**
      * @ORM\Id
