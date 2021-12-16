@@ -30,6 +30,17 @@ class QrcodeRepository extends ServiceEntityRepository
         //dump($result);
         return $result;
     }
+    public function createToken()
+    {
+        $token = rand(1,9999999);
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'INSERT INTO qrcode VALUES (0,DATE(NOW()),'.$token.')';
+        dump($sql);
+        $query = $conn->executeQuery($sql);
+//$result = $query->fetchOne();
+        return $token;
+    }
     
 
     // /**
