@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-dashboard.html.twig' %}
 
 {% block title %}Student index{% endblock %}
 
  {% block stylesheets %}
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
  {% endblock %}
 
 {% block body %}
@@ -25,11 +25,11 @@
         </nav>
 
     <div class="bloc_dashboard">
+        <div class="chart_container">
+            {{ render_chart(chart, {'id': 'my-chart'})}}
+        </div>
         <div class="btn_container">
             <h1>FeedBack - Dashboard </h1>
-            
-            {{ render_chart(chart, {'id': 'my-chart'})}}
-
             <a href="{{ path('student_new') }}"><button id="btn5">Faire un feedback</button></a>
         </div>
         <table class="table">

@@ -6,7 +6,7 @@
 .title{
     font-size: 5rem;
     transition: 0.2s;
-    animation: fromTop 2s ;
+    /* animation: fromTop 2s ; */
 }
 
 /***************/
@@ -38,6 +38,10 @@
     pointer-events: none;
 }
 
+footer {
+    margin-top: 10%;
+}
+
 @media screen and (max-width: 750px) {
     main{
         max-width: 100%;
@@ -62,10 +66,10 @@
     0% {
         color: rgba(0, 0, 0, 0);
         transition: 0.2s;
-        margin-top: 20px;
+        margin-top: -5%;
     }
     100% {
         color: rgb(0, 0, 0);
-        /* transition: 0.2s; */
+        transition: 0.2s;
     }
 }
