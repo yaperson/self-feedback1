@@ -28,10 +28,28 @@ class ChartjsController extends AbstractController
             $data[] = $Students->getNoteRepas();
             $data2[] = $Students->getNoteValeurEnvironnement();
         }
+
+        dump($labels);
+        dump(count($labels));
+        $cpt = 0;
+       for ($i = 0; $i <=> count($labels)-1;$i++){
+            if( $labels[ 0 ] == $labels[ $i ] )
+             {
+                $tab1[] = $labels[ $i ];
+             }
+             else if ($labels[ $i ] == $labels[ $i + 1 ])
+             {
+                 $tab2[] = $labels[ $i +1] ;
+             }
+             $cpt = $cpt +1;
+        }
+        dump($tab1);
+        dump($tab2);
+        dump($cpt);
  
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([
-            'labels' => $labels,
+            'labels' => /*["Lundi","Mardi", "Mercredi", "Jeudi", "Vendredi"]*/ $labels,
             'datasets' => [
                 [
                     'label' => 'Note repas',
