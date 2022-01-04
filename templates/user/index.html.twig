@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-user.html.twig' %}
 
 {% block title %}User index{% endblock %}
 
@@ -13,26 +13,22 @@
             <span class="leftnav__separateBar"></span>
             <div class="leftnav__param">
                 <a class="topnav__link" href="{{ path('student_index') }}">| Rapports <img src="../images/report.png" width="30px"></a>
-                <a class="topnav__link" href="{{ path('classe_index') }}">| Gestion des classes <img src="../images/classe.png" width="30px"></a>
+                <a class="topnav__link" href="{{ path('classes_index') }}">| Gestion des classes <img src="../images/classe.png" width="30px"></a>
                 <a class="topnav__link" href="#">| Gestion des utilisateurs <img src="../images/user.png" width="30px"></a>
                 <a class="topnav__link" href="{{ path('qrcode_generate') }}">| générer le QR-code <img src="../images/qrcode.png" width="30px"></a>
             </div>
         </nav>
 <div class="bloc_dashboard">
-    <h1>User index</h1>
+    {# <h1>User index</h1> #}
 
 
         <nav class="leftNav" id="myTopnav">
-            <div class="leftnav__date">
-                <a class="topnav__link">Rapports du "date" au "date"</a>
-                <a class="topnav__link">Rapports du "date" au "date"</a>
-                <a class="topnav__link">Rapports du "date" au "date"</a>
-            </div>
             <span class="leftnav__separateBar"></span>
             <div class="leftnav__param">
-                <a class="topnav__link" href="#">| Rapports</a>
-                <a class="topnav__link" href="{{ path('classes_index') }}">| Gestion des classes</a>
-                <a class="topnav__link" href="{{ path('user_index') }}">| Gestion des utilisateurs</a>
+                <a class="topnav__link" href="{{ path('student_index') }}">| Rapports <img src="../images/report.png" width="20px"></a>
+                <a class="topnav__link" href="{{ path('classes_index') }}" >| Gestion des classes <img src="../images/classe.png" width="20px"></a>
+                <a class="topnav__link" href="#">| Gestion des utilisateurs <img src="../images/user.png" width="20px"></a>
+                <a class="topnav__link" href="{{ path('qrcode_generate') }}">| générer le QR-code <img src="../images/qrcode.png" width="20px"></a>
             </div>
         </nav>
 
@@ -55,7 +51,7 @@
         {% for user in users %}
             <tr>
                 <th>{{ user.id }}</th>
-                <th>{{ user.email }}</th>
+                <th>{{ user.username }}</th>
                 <th>{{ user.roles ? user.roles|json_encode : '' }}</th>
                 <th>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
@@ -70,7 +66,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+    {# <a href="{{ path('user_new') }}">Create new</a> #}
 </div>
     <div class="bottom__param">
        <a class="bottom__link" href="#"><img src="../images/report.png" width="20px"></a>
