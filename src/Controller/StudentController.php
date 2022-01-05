@@ -73,7 +73,7 @@ class StudentController extends AbstractController
         $student = new Student();
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
-
+        dump($request);
         //dump($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
