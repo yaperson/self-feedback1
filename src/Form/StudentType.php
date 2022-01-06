@@ -12,71 +12,37 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class StudentType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('note_repas',RadioType::class,[
-                'attr' =>['value' => 1,
-                        'class' => 'radio_inputs',
-                        'type' => 'radio',
-                        'name' => 'note_repas',
-                    ],
+        $builder->add('note_repas', ChoiceType::class, [
+            'choices' => [
+                 '1' => 1,
+                 '2' => 2,
+                 '3' => 3,
+                 '4' => 4,
+                 '5' => 5,
+             ],
+            'expanded' => true,
+            'multiple' => false,
 
-                'attr' =>['value' => 2,
-                        'class' => 'radio_inputs',
-                        'type' => 'radio',
-                        'name' => 'note_repas',
-                    ],
+    ]);
+    $builder->add('note_valeur_environnement', ChoiceType::class, [
+        'choices' => [
+             '1' => 1,
+             '2' => 2,
+             '3' => 3,
+             '4' => 4,
+             '5' => 5,
+         ],
+        'expanded' => true,
+        'multiple' => false,
 
-                'attr' =>['value' => 3,
-                        'class' => 'radio_inputs',
-                        'type' => 'radio',
-                        'name' => 'note_repas',
-                    ],
-                
-                'attr' =>['value' => 4,
-                        'class' => 'radio_inputs',
-                        'type' => 'radio',
-                        'name' => 'note_repas',
-                    ],
-                    
-                'attr' =>['value' => 5,
-                        'class' => 'radio_inputs',
-                        'type' => 'radio',
-                        'name' => 'note_repas',
-                    ],
-
-                ]);
-
-        $builder->add('note_valeur_environnement', RadioType::class, [
-            'attr' => ['value' => '1',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_valeur_environnement'],
-
-            'attr' => ['value' => '2',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_valeur_environnement'],
-
-            'attr' => ['value' => '3',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_valeur_environnement'],
-
-            'attr' => ['value' => '4',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'notenote_valeur_environnement_repas'],
-
-            'attr' => ['value' => '5',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_valeur_environnement'],
-        ]);
+]);
         $builder->add('note_commentaire', TextareaType::class, [
             'attr' => [
                 'rows' => '10',
