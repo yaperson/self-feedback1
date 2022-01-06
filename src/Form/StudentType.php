@@ -18,32 +18,39 @@ class StudentType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('note_repas', RadioType::class, [
-            'attr' => ['value' => '1',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_repas'],
+        $builder->add('note_repas',RadioType::class,[
+                'attr' =>['value' => 1,
+                        'class' => 'radio_inputs',
+                        'type' => 'radio',
+                        'name' => 'note_repas',
+                    ],
 
-            'attr' => ['value' => '2',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_repas'],
+                'attr' =>['value' => 2,
+                        'class' => 'radio_inputs',
+                        'type' => 'radio',
+                        'name' => 'note_repas',
+                    ],
 
-            'attr' => ['value' => '3',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_repas'],
+                'attr' =>['value' => 3,
+                        'class' => 'radio_inputs',
+                        'type' => 'radio',
+                        'name' => 'note_repas',
+                    ],
+                
+                'attr' =>['value' => 4,
+                        'class' => 'radio_inputs',
+                        'type' => 'radio',
+                        'name' => 'note_repas',
+                    ],
+                    
+                'attr' =>['value' => 5,
+                        'class' => 'radio_inputs',
+                        'type' => 'radio',
+                        'name' => 'note_repas',
+                    ],
 
-            'attr' => ['value' => '4',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_repas'],
+                ]);
 
-            'attr' => ['value' => '5',
-                'class' => 'radio_inputs',
-                'type' => 'radio',
-                'name' => 'note_repas'],
-        ]);
         $builder->add('note_valeur_environnement', RadioType::class, [
             'attr' => ['value' => '1',
                 'class' => 'radio_inputs',
