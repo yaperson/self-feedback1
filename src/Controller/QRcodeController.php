@@ -40,9 +40,10 @@ class QRcodeController extends AbstractController
             $logoPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'ndlp.png';
 
             $writer = new PngWriter();
-    
+            
             // Create QR code
-            $qrCode = QrCode::create('http://localhost:8000/student/new?token='.$token)
+            require('../adresse.php');
+            $qrCode = QrCode::create('https://dylan.pro.ndlpavranches.fr/student/new?token='.$token)
                 ->setEncoding(new Encoding('UTF-8'))
                 ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
                 ->setSize(500)

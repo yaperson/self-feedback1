@@ -19,11 +19,11 @@ class StudentType extends AbstractType
     {
         $builder->add('note_repas', ChoiceType::class, [
             'choices' => [
-                '1' => 1,
-                '2' => 2,
-                '3' => 3,
-                '4' => 4,
-                '5' => 5,
+                '1 ★' => 1,
+                '2 ★' => 2,
+                '3 ★' => 3,
+                '4 ★' => 4,
+                '5 ★' => 5,
             ],
             'expanded' => true,
             'multiple' => false,
@@ -31,11 +31,11 @@ class StudentType extends AbstractType
         ]);
         $builder->add('note_valeur_environnement', ChoiceType::class, [
             'choices' => [
-                '1' => 1,
-                '2' => 2,
-                '3' => 3,
-                '4' => 4,
-                '5' => 5,
+                '1 ★' => 1,
+                '2 ★' => 2,
+                '3 ★' => 3,
+                '4 ★' => 4,
+                '5 ★' => 5,
             ],
             'expanded' => true,
             'multiple' => false,

@@ -32,7 +32,7 @@ class ClassesController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         
         $class = new Classes();
         $form = $this->createForm(ClassesType::class, $class);
@@ -67,6 +67,7 @@ class ClassesController extends AbstractController
      */
     public function edit(Request $request, Classes $class): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         $form = $this->createForm(ClassesType::class, $class);
         $form->handleRequest($request);
 
@@ -87,6 +88,8 @@ class ClassesController extends AbstractController
      */
     public function delete(Request $request, Classes $class): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+        
         if ($this->isCsrfTokenValid('delete'.$class->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($class);

@@ -11,9 +11,6 @@
         <div class="main__title">
             <h1 class="title">FeedBack Self</h1>
         </div>
-        <div class="main__btn">
-                <a id="btn5" href="{{ path('qrcode_generate') }}"><span class="TxtBtn">générer le QR-code</span></a>
-        </div>
         {% if is_granted('ROLE_USER') %}
           <div class="main__btn">
               <a id="btn5" href="{{ path('student_index') }}"><span class="TxtBtn">dashboard</span></a>

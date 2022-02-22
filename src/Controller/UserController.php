@@ -55,7 +55,7 @@ class UserController extends AbstractController
             $user->setPassword($password);
 
             $entityManager->persist($user);
-            //dump($user);
+            dump($user);
             $entityManager->flush();
             
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
@@ -72,7 +72,7 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
-        //$this->denyAccessUnlessGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_USER');
         
         return $this->render('user/show.html.twig', [
             'user' => $user,
@@ -84,7 +84,7 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
-        //$this->denyAccessUnlessGranted('ROLE_SUPERADMIN'); //sécuritée
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
         
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -102,18 +102,17 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="user_delete", methods={"GET","POST"})
      */
     public function delete(Request $request, User $user): Response
     {
-        //$this->denyAccessUnlessGranted('ROLE_SUPERADMIN');
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
     }
 }

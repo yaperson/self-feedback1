@@ -23,6 +23,8 @@ class StudentController extends AbstractController
      */
     public function index(StudentRepository $StudentRepository, ChartBuilderInterface $chartBuilder): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
         $student = $StudentRepository->findAll();
 
         $labels = [];
@@ -30,7 +32,7 @@ class StudentController extends AbstractController
         $data2 = [];
 
         foreach ($student as $Students) {
-            $labels[] = $Students->getNoteDate(); //->format('d/m/Y');
+            $labels[] = $Students->getNoteDate()->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
             $data2[] = $Students->getNoteValeurEnvironnement();
         }
@@ -70,6 +72,8 @@ class StudentController extends AbstractController
      * @Route("/new", name="student_new", methods={"GET","POST"})
      */
     function new (Request $request): Response {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
         $student = new Student();
         $student->setNoteDate(new DateTime());
         $form = $this->createForm(StudentType::class, $student);
@@ -104,6 +108,8 @@ class StudentController extends AbstractController
      */
     public function show(Student $student): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
         return $this->render('student/show.html.twig', [
             'student' => $student,
         ]);
