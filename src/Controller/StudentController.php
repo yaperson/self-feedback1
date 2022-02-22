@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 /**
  * @Route("/student")
  */
@@ -20,20 +21,20 @@ class StudentController extends AbstractController
     /**
      * @Route("/", name="student_index", methods={"GET"})
      */
-    public function index(StudentRepository $StudentRepository,ChartBuilderInterface $chartBuilder): Response
+    public function index(StudentRepository $StudentRepository, ChartBuilderInterface $chartBuilder): Response
     {
         $student = $StudentRepository->findAll();
- 
+
         $labels = [];
         $data = [];
         $data2 = [];
 
         foreach ($student as $Students) {
-            $labels[] = $Students->getNoteDate() ; //->format('d/m/Y');
+            $labels[] = $Students->getNoteDate(); //->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
             $data2[] = $Students->getNoteValeurEnvironnement();
         }
- 
+
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([
             'labels' => $labels,
@@ -49,14 +50,14 @@ class StudentController extends AbstractController
                 [
                     'label' => 'Note Environement',
                     'backgroundColor' => 'rgba(255,255,255, 0.5)',
-                    'borderColor' => 'rgb(242, 129, 35)',
-                    'pointBackgroundColor' => 'rgb(45,170,255)',
-                    'pointBorderColor' => 'rgb(45,170,255)',
+                    'borderColor' => 'rgb(45,170,255)',
+                    'pointBackgroundColor' => 'rgb(242, 129, 35)',
+                    'pointBorderColor' => 'rgb(242, 129, 35)',
                     'data' => $data2,
                 ],
             ],
         ]);
-         
+
         $chart->setOptions([]);
 
         return $this->render('student/index.html.twig', [
@@ -68,26 +69,29 @@ class StudentController extends AbstractController
     /**
      * @Route("/new", name="student_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
-    {
+    function new (Request $request): Response {
         $student = new Student();
+        $student->setNoteDate(new DateTime());
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
 
-        //dump($request);
+        dump($request);
+        if($form->isSubmitted()) {
+            dump($form->isValid());
+        }
+        dump($form->getErrors());
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($student);
-            
-            dump($request); 
+
+            // dump($request);
             // $CurrentDate=$request->get('student')['note_date'];
             //$CurrentDate=date("d/m/Y");
-            $student->setNoteDate(new DateTime());
 
             $entityManager->flush();
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
-}
+        }
 
         return $this->render('student/new.html.twig', [
             'student' => $student,
@@ -136,7 +140,7 @@ class StudentController extends AbstractController
 
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-        if ($this->isCsrfTokenValid('delete'.$student->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $student->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($student);
             $entityManager->flush();

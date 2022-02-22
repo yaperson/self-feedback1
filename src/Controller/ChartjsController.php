@@ -44,7 +44,6 @@ class ChartjsController extends AbstractController
              $cpt = $cpt +1;
         }
         dump($tab1);
-        dump($tab2);
         dump($cpt);
  
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
@@ -62,7 +61,7 @@ class ChartjsController extends AbstractController
                 [
                     'label' => 'Note Environement',
                     'backgroundColor' => 'rgba(255,255,255, 0.5)',
-                    'borderColor' => 'rgb(242, 129, 35)',
+                    'borderColor' => 'rgb(45,170,255)',
                     'pointBackgroundColor' => 'rgb(45,170,255)',
                     'pointBorderColor' => 'rgb(45,170,255)',
                     'data' => $data2,
