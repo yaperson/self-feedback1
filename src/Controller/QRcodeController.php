@@ -42,8 +42,8 @@ class QRcodeController extends AbstractController
             $writer = new PngWriter();
             
             // Create QR code
-            require('../adresse.php');
-            $qrCode = QrCode::create('https://dylan.pro.ndlpavranches.fr/student/new?token='.$token)
+            include('../adresse.php');
+            $qrCode = QrCode::create(ADRESSE.'student/new?token='.$token)
                 ->setEncoding(new Encoding('UTF-8'))
                 ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
                 ->setSize(500)
@@ -76,7 +76,7 @@ class QRcodeController extends AbstractController
             $writer = new PngWriter();
     
             // Create QR code
-            $qrCode = QrCode::create('http://localhost:8000/student/new?token='.$token)
+            $qrCode = QrCode::create(ADRESSE.'student/new?token='.$token)
                 ->setEncoding(new Encoding('UTF-8'))
                 ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
                 ->setSize(500)

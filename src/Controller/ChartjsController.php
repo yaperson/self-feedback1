@@ -28,6 +28,7 @@ class ChartjsController extends AbstractController
         dump($datenoteenvironnement);
         $repas = [];
         $envi = [];
+        $moyenne = [];
         foreach ($student as $Students) {
             $labels[] = $Students->getNoteDate()->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
@@ -35,6 +36,13 @@ class ChartjsController extends AbstractController
         }
 
         for ($i = 0; $i < count($datenoterepas);$i++){
+            if (empty($moyenne)){
+                $moyenne[$i][$i] = $datenoterepas[$i]["note_repas"];
+            }
+            else if ($datenoterepas[$i]["note_date"] == $datenoterepas[$i-1]["note_date"]){
+                $moyenne[$i][$i] = $datenoterepas[$i]["note_repas"];
+            }
+
             $repas[] = $datenoterepas[$i]["note_repas"];
             $envi[] = $datenoteenvironnement[$i]["note_valeur_environnement"];
         }
@@ -42,6 +50,7 @@ class ChartjsController extends AbstractController
         // $moeynnejour = $moyennejour + $datenoterepas[$i]['note_repas'];
         dump($repas);
         dump($envi);
+        dump($moyenne);
 
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([

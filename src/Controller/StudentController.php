@@ -94,7 +94,7 @@ class StudentController extends AbstractController
             //$CurrentDate=date("d/m/Y");
 
             $entityManager->flush();
-            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            //return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('student/new.html.twig', [
