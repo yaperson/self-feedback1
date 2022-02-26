@@ -18,7 +18,32 @@ class StudentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Student::class);
     }
-
+    public function getDateRepas(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate = date("Y-m-d");
+        $madate2 = date("d")-7;
+        $madate3 = date("Y-m")."-".$madate2;
+        //dump($madate3." ".$madate);
+        $sql = 'SELECT note_repas, note_date FROM student WHERE note_date <= "'.$madate.'" AND note_date >= "'.$madate3.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        //dump($result);
+        return $result;
+    }
+    public function getDateEnv(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate = date("Y-m-d");
+        $madate2 = date("d")-7;
+        $madate3 = date("Y-m")."-".$madate2;
+        //dump($madate3." ".$madate);
+        $sql = 'SELECT note_valeur_environnement, note_date FROM student WHERE note_date <= "'.$madate.'" AND note_date >= "'.$madate3.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        //dump($result);
+        return $result;
+    }
     // /**
     //  * @return Student[] Returns an array of Student objects
     //  */

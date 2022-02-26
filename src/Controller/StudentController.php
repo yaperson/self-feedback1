@@ -26,7 +26,7 @@ class StudentController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
         $student = $StudentRepository->findAll();
-
+        
         $labels = [];
         $data = [];
         $data2 = [];
@@ -72,7 +72,7 @@ class StudentController extends AbstractController
      * @Route("/new", name="student_new", methods={"GET","POST"})
      */
     function new (Request $request): Response {
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
         $student = new Student();
         $student->setNoteDate(new DateTime());

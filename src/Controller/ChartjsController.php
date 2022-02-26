@@ -22,18 +22,27 @@ class ChartjsController extends AbstractController
         $labels = [];
         $data = [];
         $data2 = [];
-
+        $datenoterepas = $StudentRepository->getDateRepas();
+        $datenoteenvironnement = $StudentRepository->getDateEnv();
+        dump($datenoterepas);
+        dump($datenoteenvironnement);
+        $repas = [];
+        $envi = [];
         foreach ($student as $Students) {
             $labels[] = $Students->getNoteDate()->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
             $data2[] = $Students->getNoteValeurEnvironnement();
         }
 
-        dump($labels);
-        dump(count($labels));
-        $tab1 = array();
- 
-        Dump($tab1);
+        for ($i = 0; $i < count($datenoterepas);$i++){
+            $repas[] = $datenoterepas[$i]["note_repas"];
+            $envi[] = $datenoteenvironnement[$i]["note_valeur_environnement"];
+        }
+
+        // $moeynnejour = $moyennejour + $datenoterepas[$i]['note_repas'];
+        dump($repas);
+        dump($envi);
+
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([
             'labels' => $labels,
