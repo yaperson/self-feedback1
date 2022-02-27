@@ -22,35 +22,41 @@ class ChartjsController extends AbstractController
         $labels = [];
         $data = [];
         $data2 = [];
-        $datenoterepas = $StudentRepository->getDateRepas();
-        $datenoteenvironnement = $StudentRepository->getDateEnv();
-        dump($datenoterepas);
-        dump($datenoteenvironnement);
-        $repas = [];
-        $envi = [];
-        $moyenne = [];
-        foreach ($student as $Students) {
+        $datenoterepas1 = $StudentRepository->getDateRepas1();
+        $datenoterepas2 = $StudentRepository->getDateRepas2();
+        $datenoterepas3 = $StudentRepository->getDateRepas3();
+        $datenoterepas4 = $StudentRepository->getDateRepas4();
+        $datenoterepas5 = $StudentRepository->getDateRepas5();
+        dump($datenoterepas1);
+        dump($datenoterepas2);
+
+         $labels[] = $datenoterepas1[0]['note_date'];
+        $data[] = $datenoterepas1[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas1[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas2[0]['note_date'];
+        $data[] = $datenoterepas2[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas2[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas3[0]['note_date'];
+        $data[] = $datenoterepas3[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas3[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas4[0]['note_date'];
+        $data[] = $datenoterepas4[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas4[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas5[0]['note_date'];
+        $data[] = $datenoterepas5[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas5[0]['AVG(note_valeur_environnement)'];
+
+        //dump($datenoteenvironnement);
+       /* foreach ($student as $Students) {
+
             $labels[] = $Students->getNoteDate()->format('d/m/Y');
             $data[] = $Students->getNoteRepas();
             $data2[] = $Students->getNoteValeurEnvironnement();
-        }
-
-        for ($i = 0; $i < count($datenoterepas);$i++){
-            if (empty($moyenne)){
-                $moyenne[$i][$i] = $datenoterepas[$i]["note_repas"];
-            }
-            else if ($datenoterepas[$i]["note_date"] == $datenoterepas[$i-1]["note_date"]){
-                $moyenne[$i][$i] = $datenoterepas[$i]["note_repas"];
-            }
-
-            $repas[] = $datenoterepas[$i]["note_repas"];
-            $envi[] = $datenoteenvironnement[$i]["note_valeur_environnement"];
-        }
-
-        // $moeynnejour = $moyennejour + $datenoterepas[$i]['note_repas'];
-        dump($repas);
-        dump($envi);
-        dump($moyenne);
+        }*/
 
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([

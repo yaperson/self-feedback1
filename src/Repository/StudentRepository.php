@@ -31,6 +31,62 @@ class StudentRepository extends ServiceEntityRepository
         //dump($result);
         return $result;
     }
+    public function getDateRepas1(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate = date("Y-m-d");
+        $sql = 'SELECT AVG(note_repas), AVG(note_valeur_environnement), note_date FROM student WHERE note_date = "'.$madate.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
+    public function getDateRepas2(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate2 = date("d")-1;
+        $madate3 = date("Y-m")."-".$madate2;
+        $sql = 'SELECT AVG(note_repas), AVG(note_valeur_environnement), note_date FROM student WHERE note_date = "'.$madate3.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
+    public function getDateRepas3(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate2 = date("d")-2;
+        $madate3 = date("Y-m")."-".$madate2;
+        //dump($madate3." ".$madate);
+        $sql = 'SELECT AVG(note_repas), AVG(note_valeur_environnement), note_date FROM student WHERE note_date = "'.$madate3.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        //dump($result);
+        return $result;
+    }
+    public function getDateRepas4(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate2 = date("d")-3;
+        $madate3 = date("Y-m")."-".$madate2;
+        //dump($madate3." ".$madate);
+        $sql = 'SELECT AVG(note_repas), AVG(note_valeur_environnement), note_date FROM student WHERE note_date = "'.$madate3.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        //dump($result);
+        return $result;
+    }
+    public function getDateRepas5(): ?array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $madate = date("Y-m-d");
+        $madate2 = date("d")-4;
+        $madate3 = date("Y-m")."-".$madate2;
+        //dump($madate3." ".$madate);
+        $sql = 'SELECT AVG(note_repas), AVG(note_valeur_environnement), note_date FROM student WHERE note_date = "'.$madate3.'";';
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        //dump($result);
+        return $result;
+    }
     public function getDateEnv(): ?array
     {
         $conn = $this->getEntityManager()->getConnection();

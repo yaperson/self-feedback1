@@ -58,12 +58,22 @@ class UserController extends AbstractController
             dump($user);
             $entityManager->flush();
             
-            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_valid', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+        ]);
+    }
+        /**
+     * @Route("/valid", name="user_valid", methods={"GET"})
+     */
+    function valid(): Response
+    {
+        
+        return $this->render('user/valid.html.twig', [
+            'titre' => 'L utilisateur a étais enregisté !',
         ]);
     }
 

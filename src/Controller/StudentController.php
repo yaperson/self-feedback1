@@ -30,12 +30,33 @@ class StudentController extends AbstractController
         $labels = [];
         $data = [];
         $data2 = [];
+        $datenoterepas1 = $StudentRepository->getDateRepas1();
+        $datenoterepas2 = $StudentRepository->getDateRepas2();
+        $datenoterepas3 = $StudentRepository->getDateRepas3();
+        $datenoterepas4 = $StudentRepository->getDateRepas4();
+        $datenoterepas5 = $StudentRepository->getDateRepas5();
+        dump($datenoterepas1);
+        dump($datenoterepas2);
 
-        foreach ($student as $Students) {
-            $labels[] = $Students->getNoteDate()->format('d/m/Y');
-            $data[] = $Students->getNoteRepas();
-            $data2[] = $Students->getNoteValeurEnvironnement();
-        }
+         $labels[] = $datenoterepas1[0]['note_date'];
+        $data[] = $datenoterepas1[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas1[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas2[0]['note_date'];
+        $data[] = $datenoterepas2[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas2[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas3[0]['note_date'];
+        $data[] = $datenoterepas3[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas3[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas4[0]['note_date'];
+        $data[] = $datenoterepas4[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas4[0]['AVG(note_valeur_environnement)'];
+
+        $labels[] = $datenoterepas5[0]['note_date'];
+        $data[] = $datenoterepas5[0]['AVG(note_repas)'];
+        $data2[] = $datenoterepas5[0]['AVG(note_valeur_environnement)'];
 
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([
@@ -94,12 +115,22 @@ class StudentController extends AbstractController
             //$CurrentDate=date("d/m/Y");
 
             $entityManager->flush();
-            //return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('student_valid', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('student/new.html.twig', [
             'student' => $student,
             'form' => $form->createView(),
+        ]);
+    }
+        /**
+     * @Route("/valid", name="student_valid", methods={"GET"})
+     */
+     function valid(): Response
+    {
+        
+        return $this->render('student/valid.html.twig', [
+            'titre' => 'Votre note à étais enregisté !',
         ]);
     }
 
