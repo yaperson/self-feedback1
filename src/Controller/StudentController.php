@@ -38,25 +38,31 @@ class StudentController extends AbstractController
         dump($datenoterepas1);
         dump($datenoterepas2);
 
-         $labels[] = $datenoterepas1[0]['note_date'];
-        $data[] = $datenoterepas1[0]['AVG(note_repas)'];
-        $data2[] = $datenoterepas1[0]['AVG(note_valeur_environnement)'];
-
-        $labels[] = $datenoterepas2[0]['note_date'];
-        $data[] = $datenoterepas2[0]['AVG(note_repas)'];
-        $data2[] = $datenoterepas2[0]['AVG(note_valeur_environnement)'];
-
-        $labels[] = $datenoterepas3[0]['note_date'];
-        $data[] = $datenoterepas3[0]['AVG(note_repas)'];
-        $data2[] = $datenoterepas3[0]['AVG(note_valeur_environnement)'];
-
-        $labels[] = $datenoterepas4[0]['note_date'];
-        $data[] = $datenoterepas4[0]['AVG(note_repas)'];
-        $data2[] = $datenoterepas4[0]['AVG(note_valeur_environnement)'];
-
-        $labels[] = $datenoterepas5[0]['note_date'];
-        $data[] = $datenoterepas5[0]['AVG(note_repas)'];
-        $data2[] = $datenoterepas5[0]['AVG(note_valeur_environnement)'];
+        if (isset($datenoterepas1[0]['note_date'])){
+            $labels[] = $datenoterepas1[0]['note_date'];
+           $data[] = $datenoterepas1[0]['AVG(note_repas)'];
+           $data2[] = $datenoterepas1[0]['AVG(note_valeur_environnement)'];
+       }
+           if (isset($datenoterepas2[0]['note_date'])){
+           $labels[] = $datenoterepas2[0]['note_date'];
+           $data[] = $datenoterepas2[0]['AVG(note_repas)'];
+           $data2[] = $datenoterepas2[0]['AVG(note_valeur_environnement)'];
+       }
+           if(isset($datenoterepas3[0]['note_date'])){
+           $labels[] = $datenoterepas3[0]['note_date'];
+           $data[] = $datenoterepas3[0]['AVG(note_repas)'];
+           $data2[] = $datenoterepas3[0]['AVG(note_valeur_environnement)'];
+       }
+           if(isset($datenoterepas4[0]['note_date'])){
+           $labels[] = $datenoterepas4[0]['note_date'];
+           $data[] = $datenoterepas4[0]['AVG(note_repas)'];
+           $data2[] = $datenoterepas4[0]['AVG(note_valeur_environnement)'];
+       }
+           if(isset($datenoterepas5[0]['note_date'])){
+           $labels[] = $datenoterepas5[0]['note_date'];
+           $data[] = $datenoterepas5[0]['AVG(note_repas)'];
+           $data2[] = $datenoterepas5[0]['AVG(note_valeur_environnement)'];
+       }
 
         $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
         $chart->setData([
@@ -132,6 +138,40 @@ class StudentController extends AbstractController
         return $this->render('student/valid.html.twig', [
             'titre' => 'Votre note à étais enregisté !',
         ]);
+    }
+    /**
+     *  @Route("/csv", name="student_csvweek", methods={"GET"})
+     */
+    function csvWeek(StudentRepository $StudentRepository): Response
+    {
+        $labels = [];
+        $data = [];
+        $data2 = [];
+        $datenoterepas = $StudentRepository->getDateRepas();
+        for ($i = 0; $i < count($datenoterepas);$i++){
+        $labels[] = $datenoterepas[0]['note_date'];
+        $data[] = $datenoterepas[0]['note_repas'];
+        $data2[] = $datenoterepas[0]['note_valeur_environnement'];
+        }
+        
+
+        $list = array (
+        array('Note Repas', 'Note Environnement', 'Date')
+        );
+        for ($i = 0; $i < count($labels);$i++){
+            $list2[] = $data[$i];
+            $list2[] = $data2[$i];
+            $list2[] = $labels[$i];
+        }
+        $list[] = $list;
+        dump($list);
+        $fp = fopen('export.csv', 'w');
+        
+       for ($j =0; $j< count($datenoterepas);$j++) {
+           fputcsv($fp );
+ }
+    fclose($fp);
+     return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
     }
 
     /**

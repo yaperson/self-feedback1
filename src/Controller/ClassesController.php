@@ -43,12 +43,22 @@ class ClassesController extends AbstractController
             $entityManager->persist($class);
             $entityManager->flush();
 
-            return $this->redirectToRoute('classes_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('classe_valid', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('classes/new.html.twig', [
             'class' => $class,
             'form' => $form->createView(),
+        ]);
+    }
+     /**
+     * @Route("/valid", name="classe_valid", methods={"GET"})
+     */
+    function valid(): Response
+    {
+        
+        return $this->render('classes/valid.html.twig', [
+            'titre' => 'La classe a étais enregisté !',
         ]);
     }
 

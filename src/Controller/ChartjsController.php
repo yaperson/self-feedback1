@@ -30,26 +30,31 @@ class ChartjsController extends AbstractController
         dump($datenoterepas1);
         dump($datenoterepas2);
 
+        if (isset($datenoterepas1[0]['note_date'])){
          $labels[] = $datenoterepas1[0]['note_date'];
         $data[] = $datenoterepas1[0]['AVG(note_repas)'];
         $data2[] = $datenoterepas1[0]['AVG(note_valeur_environnement)'];
-
+    }
+        if (isset($datenoterepas2[0]['note_date'])){
         $labels[] = $datenoterepas2[0]['note_date'];
         $data[] = $datenoterepas2[0]['AVG(note_repas)'];
         $data2[] = $datenoterepas2[0]['AVG(note_valeur_environnement)'];
-
+    }
+        if(isset($datenoterepas3[0]['note_date'])){
         $labels[] = $datenoterepas3[0]['note_date'];
         $data[] = $datenoterepas3[0]['AVG(note_repas)'];
         $data2[] = $datenoterepas3[0]['AVG(note_valeur_environnement)'];
-
+    }
+        if(isset($datenoterepas4[0]['note_date'])){
         $labels[] = $datenoterepas4[0]['note_date'];
         $data[] = $datenoterepas4[0]['AVG(note_repas)'];
         $data2[] = $datenoterepas4[0]['AVG(note_valeur_environnement)'];
-
+    }
+        if(isset($datenoterepas5[0]['note_date'])){
         $labels[] = $datenoterepas5[0]['note_date'];
         $data[] = $datenoterepas5[0]['AVG(note_repas)'];
         $data2[] = $datenoterepas5[0]['AVG(note_valeur_environnement)'];
-
+    }
         //dump($datenoteenvironnement);
        /* foreach ($student as $Students) {
 

@@ -25,7 +25,7 @@ class StudentRepository extends ServiceEntityRepository
         $madate2 = date("d")-7;
         $madate3 = date("Y-m")."-".$madate2;
         //dump($madate3." ".$madate);
-        $sql = 'SELECT note_repas, note_date FROM student WHERE note_date <= "'.$madate.'" AND note_date >= "'.$madate3.'";';
+        $sql = 'SELECT note_repas, note_valeur_environnement, note_date FROM student WHERE note_date <= "'.$madate.'" AND note_date >= "'.$madate3.'";';
         $query = $conn->executeQuery($sql);
         $result = $query->fetchAll();
         //dump($result);
