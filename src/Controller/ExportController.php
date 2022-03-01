@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use PDO;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+include "../conf.php";
 class ExportController extends AbstractController
 {
     /**
@@ -13,78 +14,115 @@ class ExportController extends AbstractController
      */
     public function index(): Response
     {
-        //Cet exemple est tiré du site tcpdf et ne représente en rien le produit fini, il sert juste à montrer ce que TCPDF peut faire.
         
-        // create new PDF document
+        //Mise en place de fonctions locales...
+        function setGraphTemplate(\TCPDF $pdf) { //Création du squelette du graphique.
+            $dates=["12/01","12/02","12/03","12/04","12/05"]; //Les dates, elles seront importées avec les notes.
+
+            $count=-1;
+            $count2=0;
+            $pdf->Arrow(30, 180, 266, 180, 3, 5, 15); //Date (X), 44 d'intervalle entre chaque barre.
+            $pdf->Arrow(30, 180, 30, 40, 3, 5, 15); //Note (Y), 25 d'intervalle entre chaque barre.
+            for($y = 155;$y >= 55;$y -=25)
+            $pdf->Line(29, $y, 31, $y);
+            for($x = 60;$x <=250;$x+=44)
+            $pdf->Line($x,179,$x,181);
+            $pdf->SetFont('courier', '', 8);
+            for($i = 176;$i>=0;$i-=44) { //Mise en place de la date (Devra être préparé dynamiquement)
+                $count++;
+                $pdf->Text(230.5-$i,181,"$dates[$count]",false, false, true, 0, 0, '', false, '', 0, false, 'T', 'M', $rtloff=true);
+            }
+            for($i = 25;$i<150;$i+=25) { //Mise en place des chiffres de 1 à 5
+                $count2++;
+                $pdf->Text(25,178.25-$i,"$count2",false, false, true, 0, 0, '', false, '', 0, false, 'T', 'M', $rtloff=true);
+            }
+            $pdf->SetFont('helvetica', 'B', 20);
+        }
+        function insertIntoGraph(\TCPDF $pdf) {//Insertion des données dans le graphe
+            $count = -1;
+            $noteRep=[3.3,4.2,1.3,3.4,4.7]; //Moyenne des notes repas de chaque jour
+            $noteEnv=[1.2,2.3,4.1,4.8,2]; //environnement
+            $coordRep = []; //Coordnnées de chaque note repas
+            $coordEnv = []; //...Et celles de l'environnement.
+            $styleRep = array('width' => 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 0, 0)); //Style Barre repas
+            $styleEnv = array('width' => 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 255, 190)); //Style Barre environnement
+            for($x = 60;$x<212;$x+=44) {
+                $count++;
+                $y = coordTranslator($noteRep[$count]); //Appelle le traducteur.
+                $y2 = coordTranslator($noteEnv[$count]);
+                array_push($coordRep,$x, $y); //Pousse la note dans l'array de coordonnées..
+                array_push($coordEnv,$x, $y2);
+            }
+            array_push($coordRep,$x, coordTranslator($noteRep[$count+1])); //Poussées finales, nécessaire pour pas que tout bugue.
+            array_push($coordEnv,$x, coordTranslator($noteEnv[$count+1]));
+            $pdf->SetLineStyle($styleRep); //
+            $pdf->PolyLine($coordRep); //Et voilà le beau bébé ! :D
+            $pdf->SetLineStyle($styleEnv);
+            $pdf->PolyLine($coordEnv);
+        }
+        function coordTranslator(float $note) {//Traduit les notes en coordonnée Y pour le graphique.
+            return 155-(100*($note-1)*25/100);
+        }
+        function getData(\TCPDF $pdf) { //ça a commencé en getdata, et ça finit en postdata lmao
+            $db = new PDO($dsn, $usr, $pwd);
+            $someNotes = array();
+            $request = $db->query("select note_Id, note_Valeur_Repas, note_Valeur_Environnement, note_date from notes");
+            $pdf->Text(200,50, is_empty($request),false, false, true, 0, 0, '', false, '', 0, false, 'T', 'M', $rtloff=true);
+            while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
+                $bidule+=25;
+                $pdf->Text(200,50+$bidule, "a",false, false, true, 0, 0, '', false, '', 0, false, 'T', 'M', $rtloff=true);
+            }
+        }
+
+        // Génération du PDF
         $pdf = new \TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        
 
-        // set document information
-        $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Nicola Asuni');
-        $pdf->SetTitle('TCPDF Example 031');
+        // Mise en place des informations du PDF
+        $pdf->SetCreator('Feedback Self');
+        $pdf->SetTitle('Aled.');
         $pdf->SetSubject('TCPDF Tutorial');
-        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
-        // set default header data
-        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . ' 031', PDF_HEADER_STRING);
+        // Mise en place du header (Logo, Taille logo, Titre, Sous-titre, Couleur de texte, couleur de ligne)
+        $pdf->SetHeaderData('', 0, "Rapports de cette date à cette date", "Réalisé avec TCPDF");
 
-        // set header and footer fonts
+        // Mise en place des polices
         $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
-        // set default monospaced font
+        // Mise en place de la police monospace par défaut.
         $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-        // set margins
+        // Mise en place des marges
         $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
         $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
-        // set auto page breaks
+        // Mise en place de l'auto-page-break
         $pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM);
 
-        // set image scale factor
+        // Ratio d'image.
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-        // set some language-dependent strings (optional)
-        if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
-            require_once dirname(__FILE__) . '/lang/eng.php';
-            $pdf->setLanguageArray($l);
-        }
-
 // ---------------------------------------------------------
 
-        // set font
+        // Mise en place de la grosse police
         $pdf->SetFont('helvetica', 'B', 20);
 
-        // add a page
-        $pdf->AddPage();
-
-        $pdf->Write(0, 'Example of PieSector() method.');
-
-        $xc = 105;
-        $yc = 100;
-        $r = 50;
-
-        $pdf->SetFillColor(0, 0, 255);
-        $pdf->PieSector($xc, $yc, $r, 90, 140, 'FD', false, 0, 2);
-
-        $pdf->SetFillColor(0, 255, 0);
-        $pdf->PieSector($xc, $yc, $r, 140, 270, 'FD', false, 0, 2);
-
-        $pdf->SetFillColor(255, 0, 0);
-        $pdf->PieSector($xc, $yc, $r, 270, 90, 'FD', false, 0, 2);
-
-        // write labels
-        $pdf->SetTextColor(255, 255, 255);
-        $pdf->Text(75, 65, 'BLUE');
-        $pdf->Text(60, 95, 'GREEN');
-        $pdf->Text(120, 115, 'RED');
+        // Ajout d'une page paysage (P pour le portrait)
+        $pdf->AddPage('L');
+        //2criture du titre, je sais pas quoi mettre, les autres verront.
+        $pdf->Write(0, 'Indice de satisfaction globale');
+        // Création du squelette du graphique
+        getData($pdf);
+        /// setGraphTemplate($pdf);
+        // Ajout du contenu du graphique, voyez la fonction pour gérer ça.
+        /// insertIntoGraph($pdf);
 
 // ---------------------------------------------------------
-
+        ob_end_clean(); //Nécessaire pour que le pdf se fasse bien.
         //Close and output PDF document
-        $pdf->Output('example_031.pdf', 'I');
+        $pdf->Output('export.pdf', 'I');
 
         // return $this->render('export/index.html.twig', [
         //     'controller_name' => 'ExportController',
