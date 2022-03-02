@@ -10,6 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Student|null find($id, $lockMode = null, $lockVersion = null)
  * @method Student|null findOneBy(array $criteria, array $orderBy = null)
  * @method Student[]    findAll()
+ * @method NoteWeek[]   findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  * @method Student[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class StudentRepository extends ServiceEntityRepository
@@ -20,24 +21,21 @@ class StudentRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Student[] Returns an array of Student objects
+    //  * @return NoteWeek[] Returns an array of Student objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findWeek($startdate): ?array
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "select note_date from notes where note_date between ".$startdate." and date_add($startdate, interval 4 day);";
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        return $result;
     }
-    */
+    
 
     /*
-    public function findOneBySomeField($value): ?Student
+    public function findOneById($value): ?Student
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')
