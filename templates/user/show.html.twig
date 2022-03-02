@@ -40,8 +40,8 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
+            <tr class="table_title" id="table_title">
+                <th class="table_id">Id</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
@@ -65,3 +65,4 @@
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}
+

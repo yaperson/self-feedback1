@@ -59,3 +59,16 @@
     max-height: 60px;
     cursor: pointer;
     }
+
+    .back_tolist {
+        text-decoration: none;
+        color: var(--W-color);
+        padding: 10px;
+        background-color: var(--blue-ndlp);
+        border-radius: 15px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    .back_tolist:active {
+        color: var(--w-color);
+    }

@@ -1,4 +1,4 @@
 <?php
 // Adresse de votre site
-$adresse = "";
+define('ADRESSE', "https://luidjy.pro.ndlpavranches.fr/");
 ?>
