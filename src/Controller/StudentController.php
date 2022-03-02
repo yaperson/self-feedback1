@@ -87,7 +87,15 @@ class StudentController extends AbstractController
             ],
         ]);
 
-        $chart->setOptions([]);
+        $chart->setOptions([
+            'scales' => [
+                'yAxes' => [[
+                    'ticks' => [
+                        'beginAtZero' => true
+                    ]
+                ]]
+            ]
+        ]);
 
         return $this->render('student/index.html.twig', [
             'students' => $StudentRepository->findAll(),
@@ -168,7 +176,7 @@ class StudentController extends AbstractController
         $fp = fopen('export.csv', 'w');
         
        for ($j =0; $j< count($datenoterepas);$j++) {
-           fputcsv($fp );
+           fputcsv($fp,$list );
  }
     fclose($fp);
      return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
