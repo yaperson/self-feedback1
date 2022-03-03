@@ -34,15 +34,12 @@ class StudentRepository extends ServiceEntityRepository
     }
     
 
-    /*
-    public function findOneById($value): ?Student
+    public function findNotesFromWeek($startdate): ?array
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT note_Valeur_Repas as Repas, note_Valeur_Environnement as Environnement, note_date as 'Date' FROM notes WHERE note_date BETWEEN '$startdate' AND date_add('$startdate', interval 4 day);";
+        $query = $conn->executeQuery($sql);
+        $result = $query->fetchAll();
+        return $result;
     }
-    */
 }

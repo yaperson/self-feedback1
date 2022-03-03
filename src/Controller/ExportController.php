@@ -15,7 +15,7 @@ class ExportController extends AbstractController
     public function index(): Response
     {
         $repository = $this->getDoctrine()->getRepository(Student::class);
-        $product = $repository->findWeek('2022-02-28');
+        $product = $repository->findNotesFromWeek('2022-02-28');
         //Mise en place de fonctions locales...
         function setGraphTemplate(\TCPDF $pdf) { //Création du squelette du graphique.
             $dates=["12/01","12/02","12/03","12/04","12/05"]; //Les dates, elles seront importées avec les notes.
@@ -64,12 +64,12 @@ class ExportController extends AbstractController
         function coordTranslator(float $note) {//Traduit les notes en coordonnée Y pour le graphique.
             return 155-(100*($note-1)*25/100);
         }
-        function getData(\TCPDF $pdf, $request) { //ça a commencé en getdata, et ça finit en postdata lmao
+        function getData(\TCPDF $pdf, $request, bool $refuse) { //ça a commencé en getdata, et ça finit en postdata lmao
             $pdf->SetFont('helvetica', 'B', 11);
             //J'ai besoin d'un moyen de revenir sue cette ligne en despi, alors je vais dire bun.
             $pdf->Text(100,50, "a",false, false, true, 0, 0, '', false, '', 0, false, 'T', 'M', $rtloff=true);
-            if(1==2){
-                foreach($request['note_date'] as $ligne) {
+            if($refuse==false){ //Refuse est ici pour des raisons de test, il sera retiré une fois que le debugging sera fini.
+                foreach($request['Date'] as $ligne) {
                     $bidule+=1;
                     $pdf->Text(100,50+$bidule, $ligne,false, false, true, 0, 0, '', false, '', 0, false, 'T', 'M', $rtloff=true);
                 }
@@ -116,7 +116,7 @@ class ExportController extends AbstractController
         //2criture du titre, je sais pas quoi mettre, les autres verront.
         $pdf->Write(0, 'Indice de satisfaction globale');
         // Création du squelette du graphique
-        getData($pdf, $product);
+        getData($pdf, $product, true);
         /// setGraphTemplate($pdf);
         // Ajout du contenu du graphique, voyez la fonction pour gérer ça.
         /// insertIntoGraph($pdf);
