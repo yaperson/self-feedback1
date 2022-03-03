@@ -23,14 +23,19 @@
 6. Edit the file with the name .ENV
 >- In the document you write the needed database informations
 
-7. Run the commands below :
+7. Edit adresse.php with the domaine name of your web site :
+>- In /src you can find the fille with the name adresse-sample.php
+>- copy and rename this file in adresse.php and write the domaine name with / in end
+>- Like this : www.exemple.com/
+
+8. Run the commands below :
 >- php bin/console doctrine:database:create
 >- php bin/console make:migration
 >- php bin/console doctrine:migrations:migrate
 
-8. Do the command for created the default user :
+9. Do the command for created the default user :
 >- php bin/console doctrine:fixtures:load
 
-9. Enjoy the software !
+10. Enjoy the software !
 
 
