@@ -144,7 +144,7 @@ class StudentController extends AbstractController
     {
         
         return $this->render('student/valid.html.twig', [
-            'titre' => 'Votre note à étais enregisté !',
+            'titre' => 'Votre note à été enregisté !',
         ]);
     }
     /**

@@ -6,11 +6,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>
-        {% block title %} {{titre}} {% endblock %}
+        {% block title %} Welcome!
+        {% endblock %}
+
     </title>
-    <link rel="shortcut icon" href="images/cropped-cropped-NDLP-3-min-e1544695116495.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <a href="{{ path('app_logout') }}"><link rel="shortcut icon" href="images/cropped-cropped-NDLP-3-min-e1544695116495.png" type="image/x-icon"></a>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/login.css">
     <!-- Bootstrap core CSS -->
     {# <link rel="stylesheet" href="/css/bootstrap.css" > #}
     {# <link rel="stylesheet" href="/css/starter-template.css" > #}
@@ -21,23 +24,29 @@
   </head>
 
   <body>
-        <nav class="topnav" id="myTopnav" style="justify-content:center;">
+        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+        <nav class="topnav" id="myTopnav">
           <div id="left">
+          <a href="/">
             <img class="topnav__link img" src="/images/cropped-cropped-NDLP-3-min-e1544695116495.png">
+          </a>
+            <span class="topnav__link">Notre Dame de la Providence</span>
           </div>
-          <div class="nav-link disabled">
-            <h1>FeedBack - Self</h1>
-          </div>
+          {% if is_granted('ROLE_USER') %}
+              <div class="nav-link disabled">
+                <i class="fas fa-user"></i>
+                {% if app.user %}
+                  <strong>{{ app.user.username }}</strong>
+                {% endif %}
+              </div>
+              <a class="topnav__link" id="right" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a>
+              {% else %}
+              <a class="topnav__link" id="right" href="{{ path('app_login') }}">{{'Sign in'|trans}}</a>
+              {% endif %}
         </nav>
 
     <main>
-          {% block body %}
-        <center>
-        <h2>Votre avis à été enregistré !</h2>
-        <span> Nous vous remecion de votre participation </span>
-        </center>
-    {% endblock %}
-
+          {% block body %}{% endblock %}
     </main><!-- /.container -->
     {# 
     <!-- Bootstrap core JavaScript
