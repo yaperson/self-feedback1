@@ -26,11 +26,11 @@ class StudentType extends AbstractType
                 '5 ★' => 5,
             ],
             'choice_attr' => [
-                '1 ★' => ['id' => '1'],
-                '2 ★' => ['id' => '2'],
-                '3 ★' => ['id' => '3'],
-                '4 ★' => ['id' => '4'],
-                '5 ★' => ['id' => '5'],
+                '1' => ['id' => '1'],
+                '2' => ['id' => '2'],
+                '3' => ['id' => '3'],
+                '4' => ['id' => '4'],
+                '5' => ['id' => '5'],
                 ],
             'expanded' => true,
             'multiple' => false,
@@ -45,11 +45,11 @@ class StudentType extends AbstractType
                 '5 ★' => 5,
             ],
             'choice_attr' => [
-            '1 ★' => ['id' => '1'],
-            '2 ★' => ['id' => '2'],
-            '3 ★' => ['id' => '3'],
-            '4 ★' => ['id' => '4'],
-            '5 ★' => ['id' => '5'],
+            '1' => ['id' => '1'],
+            '2' => ['id' => '2'],
+            '3' => ['id' => '3'],
+            '4' => ['id' => '4'],
+            '5' => ['id' => '5'],
             ],
             'expanded' => true,
             'multiple' => false,
@@ -75,7 +75,7 @@ class StudentType extends AbstractType
             // 'expanded' => true,
         ]);
 
-        $builder->add('submit', SubmitType::class, [
+        $builder->add('envoyer', SubmitType::class, [
             'attr' => ['class' => 'login_inputs'],
             'attr' => ['id' => 'btn5'],
         ]);

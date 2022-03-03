@@ -24,14 +24,14 @@
 			</label>
 		</div>
 		<h3 class="login_title">
-			Commentaire :
+			Commentaire <span style="font-size:80%;">( facultatif )</span> :
 		</h3>
 		{# <label for="note_commentaire">Commentaire :</label> #}
 		{{ form_widget(form.note_commentaire) }}
-		<label for="classe">Votre classe :</label>
+		<label for="classe">Votre classe <span style="font-size:80%;">( facultatif )</span> :</label>
 		{{ form_widget(form.classe) }}
 
-		{{ form_widget(form.submit) }}
+		{{ form_widget(form.envoyer) }}
 	</div>
 {% block javascripts %}
 	<script src="../js/star-rating.js"></script>

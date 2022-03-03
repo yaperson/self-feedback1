@@ -148,38 +148,31 @@ class StudentController extends AbstractController
         ]);
     }
     /**
-     *  @Route("/csv", name="student_csvweek", methods={"GET"})
+     *  @Route("/", name="student_csvweek", methods={"GET"})
      */
     function csvWeek(StudentRepository $StudentRepository): Response
     {
-        $labels = [];
-        $data = [];
-        $data2 = [];
-        $datenoterepas = $StudentRepository->getDateRepas();
-        for ($i = 0; $i < count($datenoterepas);$i++){
-        $labels[] = $datenoterepas[0]['note_date'];
-        $data[] = $datenoterepas[0]['note_repas'];
-        $data2[] = $datenoterepas[0]['note_valeur_environnement'];
-        }
+        // $labels = [];
+        // $data = [];
+        // $data2 = [];
+        // $datenoterepas = $StudentRepository->getDateRepas();
+        // for ($i = 0; $i < count($datenoterepas);$i++){
+        // $labels[] = $datenoterepas[0]['note_date'];
+        // $data[] = $datenoterepas[0]['note_repas'];
+        // $data2[] = $datenoterepas[0]['note_valeur_environnement'];
+        // }
+        ?><?php
+        header('Content-Type: text/csv;');
+        header('Content-Disposition: attachment; filename="Liste-candidature.csv"');
         
-
-        $list = array (
-        array('Note Repas', 'Note Environnement', 'Date')
-        );
-        for ($i = 0; $i < count($labels);$i++){
-            $list2[] = $data[$i];
-            $list2[] = $data2[$i];
-            $list2[] = $labels[$i];
+        $data = $StudentRepository->findAll();
+        ?>
+        "note Repas";"note Environnement";" Commentaire";" Date";
+        <?php  
+        foreach($data as $d){
+            echo '"'.$d->noteRepas.'";"'.$d->noteValeurEnvironnement.'";"'.$d->noteCommentaire.'";"'.$d->noteDate.'";'.";\n";
         }
-        $list[] = $list;
-        dump($list);
-        $fp = fopen('export.csv', 'w');
-        
-       for ($j =0; $j< count($datenoterepas);$j++) {
-           fputcsv($fp,$list );
- }
-    fclose($fp);
-     return $this->redirectToRoute('student_index', [], Response::HTTP_SEE_OTHER);
+        ?><?php
     }
 
     /**
