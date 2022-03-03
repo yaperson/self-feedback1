@@ -27,7 +27,7 @@ class StudentRepository extends ServiceEntityRepository
     public function findWeek($startdate): ?array
     {
         $conn = $this->getEntityManager()->getConnection();
-        $sql = "select note_date from notes where note_date between ".$startdate." and date_add($startdate, interval 4 day);";
+        $sql = "SELECT note_date FROM notes WHERE note_date BETWEEN '$startdate' AND date_add('$startdate', interval 4 day);";
         $query = $conn->executeQuery($sql);
         $result = $query->fetchAll();
         return $result;
