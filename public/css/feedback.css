@@ -117,3 +117,18 @@ label {
     cursor: pointer;
     border-radius: 15px;
     }
+    .rating__star-off {
+        position: relative;
+        fill: #2c2c2c;
+     }
+     .rating__star-off:hover {
+        opacity: 1;
+        cursor: pointer;
+        background-color: #2DAAE1;
+        fill:#2DAAE1;
+     }
+     .rating__star-on {
+        opacity: 1;
+        background-color: #2DAAE1;
+        fill:#2DAAE1;
+     }

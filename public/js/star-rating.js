@@ -6,7 +6,8 @@ var starRepLength = starRep.length-1;
 var starEnvLength = starEnv.length-1;
 for(i=0; i<starRep.length; i++) starRep[i].setAttribute("onclick","onRepClick()");
 for(i=0; i<starEnv.length; i++) starEnv[i].setAttribute("onclick","onEnvClick()");
-var stars = document.getElementsByTagName("polygon");
+var stars = document.getElementById("polygon1");
+var stars = document.getElementById("polygon2");
 function onRepClick() {
 for(j=0;j<5;j++) stars[j].setAttribute("class","rating__star-off"); //Passe tout en off
 for(i=0;i<5;i++) {
