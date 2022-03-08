@@ -34,9 +34,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 
 .form-check > input:checked ~ label, /* show gold star when clicked */
 .form-check:not(:checked) > label:hover, /* hover current star */
-.form-check:not(:checked) > label:hover ~ label { color: var(--blue-ndlp);  } /* hover previous stars in list */
+.form-check:not(:checked) > label:hover ~ label { color: var(--blue-ndlp); } /* hover previous stars in list */
 
 .form-check > input:checked + label:hover, /* hover current star when changing rating */
 .form-check > input:checked ~ label:hover,
 .form-check > label:hover ~ input:checked ~ label, /* lighten current selection */
-.form-check > input:checked ~ label:hover ~ label { color: var(--blue-ndlp-hover);  } 
+.form-check > input:checked ~ label:hover ~ label { color: var(--blue-ndlp-hover); } 
