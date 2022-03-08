@@ -1,0 +1,13 @@
+langage: php
+php:
+  - '7.3'
+  - '7.4'
+
+sudo: false
+cache:
+  directoryes:
+    - $HOME/var/cache
+
+env:
+    global:
+      - PHPUNIT_FLAGS="-v"
