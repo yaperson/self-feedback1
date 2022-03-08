@@ -2,16 +2,20 @@
 
 namespace App\Tests;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class SpamCheckerTest extends TestCase
+class PostControllerTest extends WebTestCase
 {
     public function testSomething(): void
     {
-        if (connection_status(200)) {
-            $this->assertTrue(true);
-        } else {
-            $this->assertTrue(false);
-        }
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+
+        $link = $crawler->selectLink('Sign in')->link();
+
+        $result = $client->click($link);
+
+        dump($result);
+        
     }
 }

@@ -11,8 +11,8 @@ class MyTest2Test extends TestCase
         if (http_response_code(200)) {
             $this->assertTrue(true);
         } else {
-            $this->assertTrue(false);
-            
+            $this->assertFalse(false);
         }
+        dump(http_response_code());
     }
 }
