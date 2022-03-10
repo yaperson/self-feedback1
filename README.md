@@ -1,5 +1,4 @@
 [![Build Status](https://api.travis-ci.com/ndlaprovidence/self-feedback1.svg?branch=main)](https://travis-ci.com/ndlaprovidence/self-feedback1)
-[![CodeFactor](https://www.codefactor.io/repository/github/yaperson/musique-web/badge)](https://www.codefactor.io/repository/github/yaperson/musique-web)
 # __**Feedback self**__
 
 ### This software was created by IT student's who have an advanced technician's certificate in programming,and you can use for free this software who is under MIT licence
